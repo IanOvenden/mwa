@@ -1,10 +1,10 @@
 .article {
   font-size: 14px;
   & a {
-    color: var(--color-blue);
+    color: var(--color-brand-1);
   }
   & p {
-    color: var(--color-black);
+    color: var(--color-brand-2);
     font-family: var(--font-text);
     font-weight: var(--font-weight);
     line-height: var(--line-height);

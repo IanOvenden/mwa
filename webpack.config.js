@@ -4,34 +4,32 @@ const webpack = require( 'webpack' );
 const path = require( 'path' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
+var loaders = {
+		css: require( './config/webpack/loader-css' ),
+        js: require( './config/webpack/loader-js' )
+	}
+	// plugins	= {
+	// 	extractor : require ( './configuration/build/plugin-extractor' ),
+	// 	postcss : require ( './configuration/build/plugin-postcss' )
+	// }
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
-        app: "./scripts/app.js",
+        app: './scripts/app.js',
     },
     output: {
-        filename: "[name].bundle.js",
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist/assets'),
-        publicPath: "/assets"
+        publicPath: '/assets'
     },
     devServer: {
-        contentBase: __dirname + "/src"
+        contentBase: path.resolve(__dirname, '/src')
     },
     module: {
         loaders: [
-            {
-                test: /\.js$/,
-                use: [{
-                    loader: "babel-loader",
-                    options: { presets: ["es2015"] }
-                }],
-            },
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    loader: 'css-loader?importLoaders=1!postcss-loader'
-                }),
-            }
+            loaders.js,
+            loaders.css
         ],
     },
     plugins: [
