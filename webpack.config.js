@@ -16,7 +16,7 @@ var loaders = {
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
-        app: './scripts/app.js',
+        app: './app.js',
     },
     output: {
         filename: '[name].bundle.js',

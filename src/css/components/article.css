@@ -1,4 +1,7 @@
 .article {
+  -webkit-transition: -webkit-transform .25s ease;
+	transition: transform .25s ease;
+  display: flex;
   font-size: 14px;
   & a {
     color: var(--color-brand-1);
