@@ -8,10 +8,6 @@ var loaders = {
 		css: require( './config/webpack/loader-css' ),
         js: require( './config/webpack/loader-js' )
 	}
-	// plugins	= {
-	// 	extractor : require ( './configuration/build/plugin-extractor' ),
-	// 	postcss : require ( './configuration/build/plugin-postcss' )
-	// }
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -27,7 +23,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, '/src')
     },
     module: {
-        loaders: [
+        rules: [
             loaders.js,
             loaders.css
         ],
