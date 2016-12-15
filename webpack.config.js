@@ -12,15 +12,15 @@ var loaders = {
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
-        app: './app.js',
+        app: './app.jsx',
     },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist/assets'),
-        publicPath: '/assets'
+        publicPath: '/dist/assets'
     },
     devServer: {
-        contentBase: path.resolve(__dirname, '/src')
+        contentBase: path.join(__dirname, '/dist')
     },
     module: {
         rules: [
