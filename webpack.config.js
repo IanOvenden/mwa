@@ -16,11 +16,11 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist/assets'),
-        publicPath: '/dist/assets'
+        path: path.resolve(__dirname, 'build/dist/assets'),
+        publicPath: 'build/dist/assets'
     },
     devServer: {
-        contentBase: path.join(__dirname, '/dist')
+        contentBase: path.join(__dirname, 'build')
     },
     module: {
         rules: [
