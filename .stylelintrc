@@ -1,0 +1,8 @@
+{
+  "rules": {
+    # GENERAL
+    "indentation": "tab",
+    # MEDIA
+    "media-feature-parentheses-space-inside": "always"
+  }
+}
