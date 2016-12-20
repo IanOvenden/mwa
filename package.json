@@ -5,6 +5,8 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.26.1",
+    "eslint": "^3.12.2",
+    "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "postcss": "^5.2.6",
@@ -15,5 +17,6 @@
     "react-dom": "^15.4.1",
     "webpack": "2.1.0-beta.27",
     "webpack-dev-server": "2.1.0-beta.12"
-  }
+  },
+  "eslintConfig": "config/linting/.eslintrc.json",
 }

@@ -1,6 +1,15 @@
 {
-	"parser": "espree",
-	"ecmaFeatures": {},
+	"plugins": [
+    	"react"
+    ],
+	"parserOptions": {
+    	"ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+			"jsx": true,
+			"modules": true
+		}
+    },
 	"rules": {
 		"no-alert": "error",
 		"no-array-constructor": "off",

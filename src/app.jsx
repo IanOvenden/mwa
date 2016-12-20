@@ -3,22 +3,24 @@ import ReactDOM from 'react-dom';
 import styles from './css/app.css';
 
 class App extends React.Component {
-  render() {
 
-    var lifeMeaning = 42;
-    var arr = () => lifeMeaning;
+	render() {
 
-    console.log( arr() );
+		var console,
+			lifeMeaning = 42,
+			arr = () => lifeMeaning;
 
-    let foobar = "Reactoooorrrr!";
+		console.log( arr() );
 
-    return (
-        <p> Hello {foobar}</p>
-    )
-  }
+		let foobar = 'Reactoooorrrr!';
+
+		return (
+			<p> Hello {foobar}</p>
+		);
+	}
 }
 
 ReactDOM.render(
   <App />,
-  document.getElementById('app')
+  document.getElementById( 'app' )
 );
