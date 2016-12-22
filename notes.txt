@@ -9,3 +9,8 @@ CAVEATS
  -  Class components should always call the base constructor with props.
  -  The only place where you can assign this.state is the constructor.
  -  There should be a single "source of truth" for any data that changes in a React application. 
+
+LINKS
+======
+
+https://github.com/joshbuchea/HEAD

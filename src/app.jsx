@@ -6,13 +6,13 @@ class App extends React.Component {
 
 	render() {
 
-		var console,
+		var Console = console,
 			lifeMeaning = 42,
 			arr = () => lifeMeaning;
 
-		console.log( arr() );
+		Console.log( arr() );
 
-		let foobar = 'Reactoooorrrr!';
+		let foobar = 'xReactoooorrrr!';
 
 		return (
 			<p> Hello {foobar}</p>
