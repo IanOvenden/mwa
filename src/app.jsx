@@ -12,7 +12,7 @@ class App extends React.Component {
 
 		Console.log( arr() );
 
-		let foobar = 'xReactoooorrrr!';
+		let foobar = 'Reactoooorrrr!';
 
 		return (
 			<p> Hello {foobar}</p>

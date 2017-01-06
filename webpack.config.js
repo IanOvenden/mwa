@@ -18,10 +18,12 @@ module.exports = {
 	output: {
 		filename: '[name].bundle.js',
 		path: path.resolve( __dirname, 'build/dist/assets' ),
-		publicPath: 'build/dist/assets'
+		publicPath: '/assets'
 	},
+	devtool: 'source-map',
 	devServer: {
-		contentBase: path.join( __dirname, 'build' )
+		contentBase: path.join( __dirname, 'build' ),
+		inline: true
 	},
 	module: {
 		rules: [
