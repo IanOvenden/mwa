@@ -3,6 +3,7 @@ REACT
 
 CAVEATS
  -  React encourages working in an immutable style.
+ -  Data flow is one way (Parent > Child)
  -  Components must return a single root element. This is why we added a <div> to contain all the <Welcome /> elements.
  -  Always start component names with a capital letter. 
     For example, <div /> represents a DOM tag, but <Welcome /> represents a component and requires Welcome to be in scope.
@@ -10,6 +11,11 @@ CAVEATS
  -  Class components should always call the base constructor with props.
  -  The only place where you can assign this.state is the constructor.
  -  There should be a single "source of truth" for any data that changes in a React application. 
+ -  State in one parent component will often form the properties of child elements. 
+ -  jsx html is xhtml based - require self closing tags
+ -  Render can only return one element.  Have to wrap child elements.
+ -  Keep jsx code light on JS.  Try to keep some semblance of separation of concerns.
+ -  Classes called from other classes need to come before them in source code. Easier if in separate files, in terms of maintenance.
 
 LINKS
 ======
