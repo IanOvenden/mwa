@@ -20,7 +20,7 @@
 		"no-class-assign": "off",
 		"no-cond-assign": "off",
 		"no-confusing-arrow": "off",
-		"no-console": "error",
+		"no-console": "off",
 		"no-const-assign": "off",
 		"no-constant-condition": "off",
 		"no-continue": "off",
