@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import BoardList from './board-list.jsx';
+import BoardList from './board/board-list.jsx';
 
 class Toolbar extends React.Component {
 
@@ -11,7 +10,7 @@ class Toolbar extends React.Component {
 	render() {
 		return (
 			<div>
-				<BoardList boards={this.props.boards}/>
+				<BoardList/>
 			</div>
 		);
 	};
