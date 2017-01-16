@@ -1,4 +1,5 @@
 import React from 'react';
+import {getBoards} from '../../utilities/api';
 
 class BoardList extends React.Component {
 
@@ -6,19 +7,18 @@ class BoardList extends React.Component {
 		super( props );
 
 		this.state = {
-			boards: [
-				{
-					id: 0,
-					name: 'snow'
-				},
-				{
-					id: 1,
-					name: 'skate'
-				}
-			]
+			boards: []
 		};
 
 		this.handleClick = this.handleClick.bind( this );
+	}
+
+	componentDidMount() {
+		getBoards().then( boards => {
+			this.setState({
+				boards: boards
+			});
+		});
 	}
 
 	handleClick() {
@@ -29,7 +29,6 @@ class BoardList extends React.Component {
 		this.setState( () => ({
 			boards: this.state.boards.concat( [newBoard] )
 		}) );
-		console.log( this.state.boards[0].name );
 	}
 
 	render() {

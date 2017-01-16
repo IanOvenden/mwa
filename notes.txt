@@ -17,6 +17,7 @@ CAVEATS
  -  Keep jsx code light on JS.  Try to keep some semblance of separation of concerns.
  -  Classes called from other classes need to come before them in source code. Easier if in separate files, in terms of maintenance.
  -  Props are immutable - READ ONLY
+ -  Use Functional Stateless components where no state is required.  Candidates would be modules with just a render function.
 
 LINKS
 ======
