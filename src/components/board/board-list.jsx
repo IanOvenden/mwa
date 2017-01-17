@@ -1,4 +1,6 @@
 import React from 'react';
+import {Route, Router, Link, hashHistory} from 'react-router';
+
 import {getBoards} from '../../utilities/api';
 
 class BoardList extends React.Component {
@@ -33,7 +35,9 @@ class BoardList extends React.Component {
 
 	render() {
 		let boards = this.state.boards.map( board => {
-			return <li key={board.id}>{board.name}</li>;
+			return <li key={board.id}><Link to={{ pathname: '/board/' + board.id } }>{board.name}</Link></li>;
+
+			//return <li key={board.id}><Link to={{ pathname: '/board', query: { boardId: board.id } }}>{board.name}</Link></li>;
 		});
 		return (
 			<ul>
