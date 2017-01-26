@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardList from './board/board-list.jsx';
+import BoardList from './board-list.jsx';
 
 class Toolbar extends React.Component {
 

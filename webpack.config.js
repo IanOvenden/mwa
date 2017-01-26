@@ -13,7 +13,7 @@ var loaders = {
 module.exports = {
 	context: path.resolve( __dirname, 'src' ),
 	entry: {
-		app: './app.jsx'
+		app: './index.jsx'
 	},
 	output: {
 		filename: '[name].bundle.js',
@@ -23,12 +23,20 @@ module.exports = {
 	devtool: 'source-map',
 	devServer: {
 		contentBase: path.join( __dirname, 'build' ),
-		inline: true
+		inline: true,
+		historyApiFallback: true
 	},
 	module: {
 		rules: [
 			loaders.js,
 			loaders.css
+		]
+	},
+	resolve: {
+		extensions: [
+			'.css',
+			'.js',
+			'.jsx'
 		]
 	},
 	plugins: [

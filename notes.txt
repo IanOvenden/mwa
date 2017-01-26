@@ -7,7 +7,8 @@ CAVEATS
  -  Components must return a single root element. This is why we added a <div> to contain all the <Welcome /> elements.
  -  Always start component names with a capital letter. 
     For example, <div /> represents a DOM tag, but <Welcome /> represents a component and requires Welcome to be in scope.
- -  All React components must act like pure functions with respect to their props.
+ -  All React components must act like pure functions with respect to their props.  A pure function will always return the same expected value.  
+    It does now produce any side effects.  It does not change anything outside of itself.
  -  Class components should always call the base constructor with props.
  -  The only place where you can assign this.state is the constructor.
  -  There should be a single "source of truth" for any data that changes in a React application. 
@@ -18,6 +19,9 @@ CAVEATS
  -  Classes called from other classes need to come before them in source code. Easier if in separate files, in terms of maintenance.
  -  Props are immutable - READ ONLY
  -  Use Functional Stateless components where no state is required.  Candidates would be modules with just a render function.
+ -  REDUX - aim for a normalised state.
+ -  Initial state set across all reducers
+ -  Redux will be the source of truth for your data and React Router will be the source of truth for your URL
 
 LINKS
 ======
