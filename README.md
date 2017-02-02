@@ -1,8 +1,12 @@
-MODERN WEB APP TEMPLATE
+MODERN REACT WEB APP TEMPLATE
 
 =======================
 
+Automated Documentation
+-----------------------
+https://github.com/docstrap/docstrap
+
+
 TODO
 
-1. Move postcss.config.js to config/webpack directory
-2. Investigate use of Google Lighthouse for app analysis github.com/GoogleChrome/lighthouse
+1. Investigate use of Google Lighthouse for app analysis github.com/GoogleChrome/lighthouse

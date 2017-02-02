@@ -1,11 +1,27 @@
+/** @module
+ * REDUX_ACTIONS
+ * @requires module:REDUX_ACTION_TYPES
+*/
+
 import {REQUEST_BOARDS, RECEIVE_BOARDS} from '../constants/action-types';
 import {apiGetBoards} from '../api/board';
+
+/** Action creator for REQUEST_BOARDS
+ * 	@function requestBoards
+ * 	@returns {Action} REQUEST_BOARDS
+*/
 
 export function requestBoards() {
 	return {
 		type: REQUEST_BOARDS
 	};
 }
+
+/** Action creator for RECEIVE_BOARDS
+ * 	@function receiveBoards
+ * 	@param {json} json Update boards state with API response.
+ * 	@returns {Action} RECEIVE_BOARDS
+*/
 
 export function receiveBoards( json ) {
 	return {
@@ -15,6 +31,13 @@ export function receiveBoards( json ) {
 	};
 }
 
+/** API call to fetch boards
+ * 	@function fetchBoards
+ * 	@private
+ *  @requires module:API~apiGetBoards
+ * 	@returns {Promise} API response promise
+*/
+
 function fetchBoards() {
 	return dispatch => {
 		dispatch( requestBoards() );
@@ -23,6 +46,13 @@ function fetchBoards() {
 		.then( json => dispatch( receiveBoards( json ) ) );
 	};
 }
+
+/** Function to determine whether or not boards list needs updating
+ * 	@function shouldFetchBoards
+ * 	@private
+ * 	@param {object} state
+ * 	@returns {bool} - flag to determine where data should be refreshed
+*/
 
 function shouldFetchBoards( state ) {
 	const boards = state.boards;
@@ -34,6 +64,10 @@ function shouldFetchBoards( state ) {
 		return true;
 	}
 }
+
+/** Wrapper function for checking whether or not to refresh boards. Invoking fetchBoards if required.
+ * 	@function fetchBoardsIfNeeded
+*/
 
 export function fetchBoardsIfNeeded() {
 	return ( dispatch, getState ) => {

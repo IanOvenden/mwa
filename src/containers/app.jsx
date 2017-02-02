@@ -1,16 +1,38 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import configureStore from '../store/configure-store';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
+import configureStore from '../store/configure-store';
 import Async from './async';
-
 import Index from '../pages/index';
 import Boards from '../pages/boards';
 import Board from '../pages/board';
 
+/** @constant
+*	@type {Object}
+*	@description the application store
+*	@default
+*	@private
+*	@memberOf module:STORE
+*/
+
 const store = configureStore( window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
-export default class App extends Component {
+/**
+ * The root application class
+ * @extends Component
+ * @requires react
+ * @requires react-redux
+ * @requires react-router
+ * @requires module:STORE
+ * @requires Async
+ */
+
+class App extends Component {
+
+	/**
+     * Setup the router
+     * @returns {Render} render the correct page
+     */
 	render() {
 		return (
 			<Provider store={store}>
@@ -26,3 +48,5 @@ export default class App extends Component {
 		);
 	}
 }
+
+export default App;

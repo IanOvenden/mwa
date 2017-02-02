@@ -1,7 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-export default class Boards extends React.Component {
+/**
+ * Boards class for list of boards.
+ * @extends Component
+ * @memberOf module:BOARDLIST
+ * @requires react
+ * @requires react-router
+ */
+
+class Boards extends React.Component {
+
+	/**
+     * Render board list element.
+     * @returns {Render}
+     */
+
 	render() {
 		return (
 			<ul>
@@ -12,3 +26,5 @@ export default class Boards extends React.Component {
 		);
 	}
 }
+
+export default Boards;

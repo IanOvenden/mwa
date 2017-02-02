@@ -1,10 +1,22 @@
 import React from 'react';
 
+/**
+ * Board list page class.
+ * @extends Component
+ * @memberof module:PAGES
+ * @requires react
+ */
+
 class Boards extends React.Component {
 
 	constructor( props ) {
 		super( props );
 	}
+
+	/**
+     * Render board list page.
+     * @returns {Render}
+     */
 
 	render() {
 

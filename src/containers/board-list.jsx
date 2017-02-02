@@ -1,7 +1,20 @@
+/** @module
+ * BOARDLIST
+*/
+
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchBoardsIfNeeded } from '../actions/board';
 import BoardList from '../presentational/board-list.jsx';
+
+/**
+ * Board list rendering class
+ * @extends Component
+ * @memberOf module:BOARDLIST
+ * @requires react
+ * @requires react-redux
+ * @requires module:REDUX_ACTIONS
+ */
 
 class BoardListContainer extends React.Component {
 
@@ -9,10 +22,20 @@ class BoardListContainer extends React.Component {
 		super( props );
 	}
 
+	/**
+     * Once mounted determine whether we need to fetch the boards
+     * @returns {Render}
+     */
+
 	componentDidMount() {
 		const { dispatch } = this.props;
 		dispatch( fetchBoardsIfNeeded() );
 	}
+
+	/**
+     * Render out the list of boards.
+     * @return {render}
+     */
 
 	render() {
 		const { boards, isFetching, lastUpdated } = this.props;
@@ -56,6 +79,13 @@ BoardListContainer.propTypes = {
 	lastUpdated: PropTypes.number,
 	dispatch: PropTypes.func.isRequired
 };
+
+/**
+ * Maps State Items to Props.
+ * @function
+ * @param {object} state
+ * @memberOf module:BOARDLIST
+ */
 
 function mapStateToProps( state ) {
 	return {
