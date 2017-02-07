@@ -23,6 +23,11 @@ CAVEATS
  -  Initial state set across all reducers
  -  Redux will be the source of truth for your data and React Router will be the source of truth for your URL
 
+ PROS
+ +  Simple to unit test
+
+ CONS
+
 LINKS
 ======
 
