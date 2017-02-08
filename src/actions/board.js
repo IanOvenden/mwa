@@ -38,7 +38,7 @@ export function receiveBoards( json ) {
  * 	@returns {Promise} API response promise
 */
 
-function fetchBoards() {
+export function fetchBoards() {
 	return dispatch => {
 		dispatch( requestBoards() );
 		return apiGetBoards()
@@ -54,7 +54,7 @@ function fetchBoards() {
  * 	@returns {bool} - flag to determine where data should be refreshed
 */
 
-function shouldFetchBoards( state ) {
+export function shouldFetchBoards( state ) {
 	const boards = state.boards;
 	if ( !boards ) {
 		return true;
