@@ -1,5 +1,7 @@
+import { fetch } from 'isomorphic-fetch';
 import { expect } from 'chai';
 import sinon from 'sinon';
+import configureStore from '../../src/store/configure-store';
 import { REQUEST_BOARDS, RECEIVE_BOARDS } from '../../src/constants/action-types';
 import * as boards from '../../src/actions/board';
 
@@ -38,5 +40,15 @@ describe( 'Board actions', () => {
 		expect( boards.shouldFetchBoards( [] ) ).to.eql( true );
 		expect( boards.shouldFetchBoards( state ) ).to.eql( true );
 		expect( boards.shouldFetchBoards( Object.assign( state, {boards: {isFetching: true}}) ) ).to.eql( false );
+	});
+
+	it( 'will check whether or not boards should be updated.', () => {
+		const store = configureStore();
+		const dispatch = sinon.spy( store, 'dispatch' );
+		const fn = boards.fetchBoardsIfNeeded();
+
+		fn( dispatch, store.getState );
+
+		expect( dispatch.called ).to.be.true;
 	});
 });
