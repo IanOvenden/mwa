@@ -35,6 +35,14 @@ http://sinonjs.org/
 Standalone test spies, stubs and mocks for JavaScript.
 No dependencies, works with any unit testing framework
 
+Redux Mock Store
+http://arnaudbenard.com/redux-mock-store/
+A mock store for your testing your redux async action creators and middleware
+
+Nock
+https://github.com/node-nock/nock
+HTTP mocking and expectations library
+
 Enzyme
 https://github.com/airbnb/enzyme
 Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
