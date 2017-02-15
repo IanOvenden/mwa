@@ -1,6 +1,5 @@
 import { fetch } from 'isomorphic-fetch';
 import { expect } from 'chai';
-import sinon from 'sinon';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from 'nock';
@@ -13,6 +12,7 @@ const middlewares = [ thunk ];
 const mockStore = configureMockStore( middlewares );
 
 describe( 'Board actions', () => {
+
 	it( 'Will return an action object of type REQUEST_BOARDS', () => {
 		expect( boards.requestBoards().type ).to.eql( types.REQUEST_BOARDS );
 	});
@@ -33,7 +33,7 @@ describe( 'Board actions', () => {
 		);
 	});
 
-	it( 'will determine whether or not it is appropriate to fetch boards', () => {
+	it( 'will determine whether or not it is appropriate to fetch boards - shouldFetchBoards', () => {
 		let state = {
 			boards: {
 				isFetching: false,
@@ -49,17 +49,9 @@ describe( 'Board actions', () => {
 		expect( boards.shouldFetchBoards( Object.assign( state, {boards: {isFetching: true}}) ) ).to.eql( false );
 	});
 
-	it( 'will check whether or not boards should be updated.', () => {
-		// const store = configureStore();
-		// const dispatch = sinon.spy( store, 'dispatch' );
-		// const fn = boards.fetchBoardsIfNeeded();
+	it( 'test the async action creators.', () => {
 
-		// fn( dispatch, store.getState );
-
-		// expect( dispatch.called ).to.be.true;
-
-		//-- NEW
-
+		//mock up the board endpoint api response
 		nock( api.BOARDS_ENDPOINT )
 			.get( '' )
 			.reply( 200, {
@@ -73,6 +65,7 @@ describe( 'Board actions', () => {
 				//}
 			});
 
+		//what actions are we expected to see called.
 		const expectedActions = [
 			{ type: types.REQUEST_BOARDS },
 			{ type: types.RECEIVE_BOARDS,
@@ -91,18 +84,11 @@ describe( 'Board actions', () => {
 
 		return store.dispatch( boards.fetchBoards() )
 		.then( () => { // return of async actions
+
+			// impossible to accurately compare receivedAt values, since there would be a delay in receiving the reply.
+			expectedActions[1].receivedAt = store.getActions()[1].receivedAt;
+
 			expect( store.getActions() ).to.eql( expectedActions );
 		});
 	});
-
-	// it( 'retrieve boards.', () => {
-	// 	const store = configureStore();
-	// 	const dispatch = sinon.spy( store, 'dispatch' );
-	// 	const fn = boards.fetchBoardsIfNeeded();
-
-	// 	fn( dispatch, store.getState );
-
-	// 	expect( dispatch.called ).to.be.true;
-	// });
-
 });
