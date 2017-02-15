@@ -49,7 +49,7 @@ describe( 'Board actions', () => {
 		expect( boards.shouldFetchBoards( Object.assign( state, {boards: {isFetching: true}}) ) ).to.eql( false );
 	});
 
-	it( 'test the async action creators.', () => {
+	it( 'test the async action creators with a mock store.', () => {
 
 		//mock up the board endpoint api response
 		nock( api.BOARDS_ENDPOINT )
@@ -85,7 +85,11 @@ describe( 'Board actions', () => {
 		return store.dispatch( boards.fetchBoards() )
 		.then( () => { // return of async actions
 
+			// ensure receivedAt time stamps are within an appropriate tolerance level.
+			expect( store.getActions()[1].receivedAt ).to.be.closeTo( expectedActions[1].receivedAt, 1000 );
+
 			// impossible to accurately compare receivedAt values, since there would be a delay in receiving the reply.
+			// deliberately match the values so as to pass the test.
 			expectedActions[1].receivedAt = store.getActions()[1].receivedAt;
 
 			expect( store.getActions() ).to.eql( expectedActions );

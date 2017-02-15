@@ -30,7 +30,7 @@ Chai
 http://chaijs.com/
 Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
 
-Sinon
+XX Sinon
 http://sinonjs.org/
 Standalone test spies, stubs and mocks for JavaScript.
 No dependencies, works with any unit testing framework
