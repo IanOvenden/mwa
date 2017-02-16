@@ -22,11 +22,16 @@ CAVEATS
  -  REDUX - aim for a normalised state.
  -  Initial state set across all reducers
  -  Redux will be the source of truth for your data and React Router will be the source of truth for your URL
+ -  Don't render to the <body> element - add another element inside for react to hang off
 
  PROS
  +  Simple to unit test
+ +  Highly modular
+ +  Good documentation
+ +  Large community
 
  CONS
+ -  Can lead to div soup if you arent careful - since component render methods can only return a single element
 
 LINKS
 ======

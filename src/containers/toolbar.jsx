@@ -21,9 +21,9 @@ class Toolbar extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<header>
 				<BoardList/>
-			</div>
+			</header>
 		);
 	};
 }
