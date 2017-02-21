@@ -22,6 +22,7 @@ describe( 'Toolbar', () => {
 		const { enzymeWrapper } = setup();
 
 		expect( enzymeWrapper.find( 'header' ).length ).to.eql( 1 );
+		console.log( enzymeWrapper.contains( <BoardList/> ) );
 		//expect( enzymeWrapper.find( BoardList ).childAt( 0 ).type() ).to.eql( 'ul' );
 	});
 });
