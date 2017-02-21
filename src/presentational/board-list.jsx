@@ -18,7 +18,7 @@ class Boards extends React.Component {
 
 	render() {
 		return (
-			<ul>
+			<ul style={{ opacity: this.props.boards.isFetching ? 0.5 : 1 }}>
 				{this.props.boards.map( ( board ) =>
 					<li key={board.id}><Link to={{ pathname: '/board/' + board.id } }>{board.name}</Link></li>
 				)}

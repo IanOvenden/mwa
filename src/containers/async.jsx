@@ -23,9 +23,7 @@ class Async extends Component {
 		return (
 			<div className="main">
 				<Toolbar />
-				<div className="page">
-					{this.props.children}
-				</div>
+				{this.props.children}
 			</div>
 		);
 	}

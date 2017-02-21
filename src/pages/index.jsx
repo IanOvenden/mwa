@@ -21,9 +21,9 @@ class Index extends React.Component {
 	render() {
 
 		return (
-			<div>
+			<section className="page">
 				<h1>Home Page</h1>
-			</div>
+			</section>
 		);
 	}
 }

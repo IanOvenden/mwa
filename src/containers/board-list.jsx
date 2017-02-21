@@ -40,22 +40,7 @@ class BoardListContainer extends React.Component {
 	render() {
 		const { boards, isFetching, lastUpdated } = this.props;
 		return (
-			<div>
-				<div>
-				<p>
-					{lastUpdated &&
-						<span>
-							Last updated at {new Date( lastUpdated ).toLocaleTimeString()}.
-							{' '}
-						</span>
-					}
-					{!isFetching &&
-						<a href='#'
-							onClick={this.handleRefreshClick}>
-							Refresh
-						</a>
-					}
-				</p>
+			<nav className="boardlist">
 				{isFetching && boards.length === 0 &&
 					<h2>Loading...</h2>
 				}
@@ -63,12 +48,9 @@ class BoardListContainer extends React.Component {
 					<h2>Empty.</h2>
 				}
 				{boards.length > 0 &&
-					<div style={{ opacity: isFetching ? 0.5 : 1 }}>
-						<BoardList boards={boards} />
-					</div>
+					<BoardList boards={boards} />
 				}
-				</div>
-			</div>
+			</nav>
 		);
 	}
 }

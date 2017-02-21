@@ -17,7 +17,7 @@ function setup() {
 }
 
 describe( 'Async', () => {
-	it( 'should render self and subcomponents', () => {
+	it( 'Async: should render self and subcomponents', () => {
 		const { enzymeWrapper } = setup();
 
 		expect( enzymeWrapper.find( 'div' ).first().hasClass( 'main' ) ).to.be.true;
