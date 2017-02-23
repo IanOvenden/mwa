@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardList from './board-list.jsx';
+import BoardListContainer from './board-list.jsx';
 
 /**
  * Container for toolbar elements
@@ -8,7 +8,7 @@ import BoardList from './board-list.jsx';
  * @requires BoardListContainer
  */
 
-class Toolbar extends React.Component {
+export class Toolbar extends React.Component {
 
 	constructor( props ) {
 		super( props );
@@ -22,7 +22,7 @@ class Toolbar extends React.Component {
 	render() {
 		return (
 			<header>
-				<BoardList/>
+				<BoardListContainer />
 			</header>
 		);
 	};

@@ -48,7 +48,8 @@ https://github.com/airbnb/enzyme
 Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
 
 JSDom Global
-
+https://github.com/tmpvar/jsdom
+A JavaScript implementation of the WHATWG DOM and HTML standards, for use with Node.js.
 
 
 

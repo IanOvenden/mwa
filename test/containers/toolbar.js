@@ -1,29 +1,13 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow, mount } from 'enzyme';
-import Toolbar from '../../src/containers/toolbar';
-import BoardList from '../../src/presentational/board-list.jsx';
-
-import configureStore from 'redux-mock-store';
+import { shallow } from 'enzyme';
+import { Toolbar } from '../../src/containers/toolbar';
 
 function setup() {
 
-	const mockStore = configureStore();
+	const props = {};
 
-	const getState = {
-		boards: {
-			isFetching: false,
-			items: {
-				name: 'boardX',
-				id: 1
-			}
-		}}; //replace this with necessary state
-	const store = mockStore( getState );
-	const props = {
-		store: store
-	};
-
-	const enzymeWrapper = mount( <Toolbar {...props} /> );
+	const enzymeWrapper = shallow( <Toolbar {...props} /> );
 
 	return {
 		props,
@@ -36,8 +20,9 @@ describe( 'Toolbar', () => {
 	it( 'Toolbar: should render self and subcomponents', () => {
 		const { enzymeWrapper } = setup();
 
-		expect( enzymeWrapper.find( 'header' ).length ).to.eql( 1 );
-		console.log( enzymeWrapper.contains( <BoardList/> ) );
-		//expect( enzymeWrapper.find( BoardList ).childAt( 0 ).type() ).to.eql( 'ul' );
+		console.log( enzymeWrapper.debug() );
+
+		//expect( enzymeWrapper.find( 'div' ).first().hasClass( 'main' ) ).to.be.true;
+		expect( enzymeWrapper.find( 'BoardListContainer' ).length ).to.eql( 1 );
 	});
 });

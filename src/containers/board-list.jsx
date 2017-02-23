@@ -16,7 +16,7 @@ import BoardList from '../presentational/board-list.jsx';
  * @requires module:REDUX_ACTIONS
  */
 
-class BoardListContainer extends React.Component {
+export class BoardListContainer extends React.Component {
 
 	constructor( props ) {
 		super( props );
