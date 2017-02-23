@@ -1,14 +1,29 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Toolbar from '../../src/containers/toolbar';
 import BoardList from '../../src/presentational/board-list.jsx';
 
+import configureStore from 'redux-mock-store';
+
 function setup() {
 
-	const props = {};
+	const mockStore = configureStore();
 
-	const enzymeWrapper = shallow( <Toolbar {...props} /> );
+	const getState = {
+		boards: {
+			isFetching: false,
+			items: {
+				name: 'boardX',
+				id: 1
+			}
+		}}; //replace this with necessary state
+	const store = mockStore( getState );
+	const props = {
+		store: store
+	};
+
+	const enzymeWrapper = mount( <Toolbar {...props} /> );
 
 	return {
 		props,
