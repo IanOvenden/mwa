@@ -1,13 +1,49 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
-import { Toolbar } from '../../src/containers/toolbar';
+import { shallow, mount } from 'enzyme';
+import Toolbar from '../../src/containers/toolbar';
+
+import * as types from '../../src/constants/action-types';
+import thunk from 'redux-thunk';
+
+const middlewares = [ thunk ];
+import configureStore from 'redux-mock-store';
+const mockStore = configureStore( middlewares );
+
+
+
+import jsdom from 'jsdom';
+const doc = jsdom.jsdom( '<!doctype html><html><body></body></html>' );
+global.document = doc;
+global.window = doc.defaultView;
 
 function setup() {
 
-	const props = {};
+	const getState = {
+		type: types.RECEIVE_BOARDS,
+		boards: {
+			isFetching: false,
+			items: {
+				name: 'boardX',
+				id: 1
+			}
 
-	const enzymeWrapper = shallow( <Toolbar {...props} /> );
+		}
+	}; //replace this with necessary state
+	const store = mockStore( getState );
+	const props = {
+		store: store
+	};
+
+	console.log( store );
+
+	const options = {
+		context: { store },
+		childContextTypes: { store: React.PropTypes.object.isRequired }
+	};
+
+	//const enzymeWrapper = shallow( <Toolbar {...props} /> );
+	const enzymeWrapper = mount( <Toolbar {...props} />, options );
 
 	return {
 		props,
