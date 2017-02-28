@@ -10,7 +10,8 @@ const middlewares = [ thunk ];
 import configureStore from 'redux-mock-store';
 const mockStore = configureStore( middlewares );
 
-
+import nock from 'nock';
+import * as api from '../../src/constants/api';
 
 import jsdom from 'jsdom';
 const doc = jsdom.jsdom( '<!doctype html><html><body></body></html>' );
@@ -35,14 +36,26 @@ function setup() {
 		store: store
 	};
 
-	console.log( store );
+
+	//mock up the board endpoint api response
+	nock( api.BOARDS_ENDPOINT )
+		.get( '' )
+		.reply( 200, {
+			//boards: {
+			isFetching: false,
+			items: {
+				name: 'boardX',
+				id: 1
+			}
+
+			//}
+		});
 
 	const options = {
 		context: { store },
 		childContextTypes: { store: React.PropTypes.object.isRequired }
 	};
 
-	//const enzymeWrapper = shallow( <Toolbar {...props} /> );
 	const enzymeWrapper = mount( <Toolbar {...props} />, options );
 
 	return {
@@ -55,10 +68,13 @@ function setup() {
 describe( 'Toolbar', () => {
 	it( 'Toolbar: should render self and subcomponents', () => {
 		const { enzymeWrapper } = setup();
+		const enzymeHTML = enzymeWrapper.html();
+		const BoardListContainer = enzymeWrapper.find( 'BoardListContainer' );
 
-		console.log( enzymeWrapper.debug() );
+		// validate the HTML structure
+		expect( enzymeHTML ).to.eql( '<header><nav class="boardlist"></nav></header>' );
 
-		//expect( enzymeWrapper.find( 'div' ).first().hasClass( 'main' ) ).to.be.true;
-		expect( enzymeWrapper.find( 'BoardListContainer' ).length ).to.eql( 1 );
+		// ensure the BoardsListContainer component has the correct props being passed to it
+		expect( BoardListContainer.props().isFetching ).to.be.false;
 	});
 });

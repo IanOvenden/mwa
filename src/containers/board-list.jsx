@@ -56,7 +56,7 @@ export class BoardListContainer extends React.Component {
 }
 
 BoardListContainer.propTypes = {
-	boards: PropTypes.array.isRequired,
+	boards: PropTypes.object.isRequired,
 	isFetching: PropTypes.bool.isRequired,
 	lastUpdated: PropTypes.number,
 	dispatch: PropTypes.func.isRequired
@@ -70,6 +70,7 @@ BoardListContainer.propTypes = {
  */
 
 function mapStateToProps( state ) {
+
 	return {
 		boards: state.boards.items,
 		isFetching: state.boards.isFetching
