@@ -5,7 +5,6 @@ import { shallow, mount } from 'enzyme';
 import nock from 'nock';
 import jsdom from 'jsdom';
 import * as types from '../../src/constants/action-types';
-import * as api from '../../src/constants/api';
 
 // setup a dummy redux store
 const middlewares = [ thunk ];
@@ -16,33 +15,34 @@ const doc = jsdom.jsdom( '<!doctype html><html><body></body></html>' );
 global.document = doc;
 global.window = doc.defaultView;
 
-export function harness( component, getState ) {
+export function harness( component, getState, nockObj, renderType='shallow' ) {
  
+	let enzymeWrapper = {};
+
 	const store = mockStore( getState );
 	const props = {
 		store: store
 	};
 
 	//mock up the board endpoint api response
-	nock( api.BOARDS_ENDPOINT )
-		.get( '' )
-		.reply( 200, {
-			//boards: {
-			isFetching: false,
-			items: {
-				name: 'boardX',
-				id: 1
-			}
-
-			//}
-		});
+	if ( nockObj ) {
+		nock( nockObj.endpoint )
+			.get( nockObj.get )
+			.reply( 200, 
+				nockObj.reply
+			);
+	}
 
 	const options = {
 		context: { store },
 		childContextTypes: { store: React.PropTypes.object.isRequired }
 	};
 
-	const enzymeWrapper = mount( component, options );
+	if ( renderType === 'shallow' ){
+		enzymeWrapper = shallow( component );
+	} else {
+		enzymeWrapper = mount( component, options );
+	}
 
 	return {
 		props,
