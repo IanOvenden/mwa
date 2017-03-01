@@ -12,10 +12,10 @@ describe( 'Toolbar', () => {
 		const getState = {
 			boards: {
 				isFetching: false,
-				items: {
+				items: [{
 					name: 'boardX',
 					id: 1
-				}
+				}]
 
 			}
 		};
@@ -37,7 +37,7 @@ describe( 'Toolbar', () => {
 		const BoardListContainer = enzymeWrapper.find( 'BoardListContainer' );
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<header><nav class="boardlist"></nav></header>' );
+		expect( enzymeHTML ).to.eql( '<header><nav class="boardlist"><ul style="opacity: 1;"><li><a>boardX</a></li></ul></nav></header>' );
 
 		// ensure the BoardsListContainer component has the correct props being passed to it
 		expect( BoardListContainer.props().isFetching ).to.be.false;

@@ -39,6 +39,7 @@ export class BoardListContainer extends React.Component {
 
 	render() {
 		const { boards, isFetching, lastUpdated } = this.props;
+
 		return (
 			<nav className="boardlist">
 				{isFetching && boards.length === 0 &&
@@ -56,7 +57,7 @@ export class BoardListContainer extends React.Component {
 }
 
 BoardListContainer.propTypes = {
-	boards: PropTypes.object.isRequired,
+	boards: PropTypes.array.isRequired,
 	isFetching: PropTypes.bool.isRequired,
 	lastUpdated: PropTypes.number,
 	dispatch: PropTypes.func.isRequired
