@@ -5,11 +5,24 @@ import * as api from '../../src/constants/api';
 import { harness } from '../.utility/harness';
 
 describe( 'Toolbar', () => {
+
+	const renderType = 'mount';
+	const nockObj = {
+		endpoint: api.BOARDS_ENDPOINT,
+		get: '',
+		reply: {
+			isFetching: false,
+			items: {
+				name: 'boardX',
+				id: 1
+			}
+		}
+	};
+	let initialState = {};
+
 	it( 'Toolbar: should render self and subcomponents', () => {
 
-		const renderType = 'mount';
-
-		const getState = {
+		initialState = {
 			boards: {
 				isFetching: false,
 				items: [{
@@ -20,19 +33,7 @@ describe( 'Toolbar', () => {
 			}
 		};
 
-		const nockObj = {
-			endpoint: api.BOARDS_ENDPOINT,
-			get: '',
-			reply: {
-				isFetching: false,
-				items: {
-					name: 'boardX',
-					id: 1
-				}
-			}
-		};
-
-		const { enzymeWrapper } = harness( <Toolbar />, getState, nockObj, false, renderType );
+		const { enzymeWrapper } = harness( <Toolbar />, initialState, nockObj, false, renderType );
 		const enzymeHTML = enzymeWrapper.html();
 		const BoardListContainer = enzymeWrapper.find( 'BoardListContainer' );
 
