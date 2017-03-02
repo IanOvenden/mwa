@@ -6,7 +6,7 @@ import { harness } from '../.utility/harness';
 describe( 'Async', () => {
 	it( 'Async: should render self and subcomponents', () => {
 
-		const { enzymeWrapper } = harness( <Async />, {}, '' );
+		const { enzymeWrapper } = harness( <Async />, {}, '', false );
 
 		expect( enzymeWrapper.find( 'div' ).first().hasClass( 'main' ) ).to.be.true;
 		expect( enzymeWrapper.find( 'Toolbar' ).length ).to.eql( 1 );

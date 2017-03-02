@@ -32,7 +32,7 @@ describe( 'Toolbar', () => {
 			}
 		};
 
-		const { enzymeWrapper } = harness( <Toolbar />, getState, nockObj, renderType );
+		const { enzymeWrapper } = harness( <Toolbar />, getState, nockObj, false, renderType );
 		const enzymeHTML = enzymeWrapper.html();
 		const BoardListContainer = enzymeWrapper.find( 'BoardListContainer' );
 

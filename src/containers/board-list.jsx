@@ -22,6 +22,7 @@ export class BoardListContainer extends React.Component {
 		super( props );
 	}
 
+
 	/**
      * Once mounted determine whether we need to fetch the boards
      * @returns {Render}

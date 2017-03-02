@@ -31,7 +31,7 @@ describe( 'BoardListContainer', () => {
 			}
 		};
 
-		const { enzymeWrapper } = harness( <BoardListContainer />, getState, nockObj, renderType );
+		const { enzymeWrapper } = harness( <BoardListContainer />, getState, nockObj, true, renderType );
 		const enzymeHTML = enzymeWrapper.html();
 		const BoardList = enzymeWrapper.find( 'BoardList' );
 
@@ -63,7 +63,7 @@ describe( 'BoardListContainer', () => {
 			}
 		};
 
-		const { enzymeWrapper } = harness( <BoardListContainer />, getState, nockObj, renderType );
+		const { enzymeWrapper } = harness( <BoardListContainer />, getState, nockObj, true, renderType );
 		const enzymeHTML = enzymeWrapper.html();
 		const BoardList = enzymeWrapper.find( 'BoardList' );
 

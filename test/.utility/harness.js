@@ -15,9 +15,10 @@ const doc = jsdom.jsdom( '<!doctype html><html><body></body></html>' );
 global.document = doc;
 global.window = doc.defaultView;
 
-export function harness( component, getState, nockObj, renderType='shallow' ) {
+export function harness( Component, getState, nockObj, presentational=false, renderType='shallow' ) {
  
 	let enzymeWrapper = {};
+	let options = {};
 
 	const store = mockStore( getState );
 	const props = {
@@ -33,15 +34,22 @@ export function harness( component, getState, nockObj, renderType='shallow' ) {
 			);
 	}
 
-	const options = {
-		context: { store },
-		childContextTypes: { store: React.PropTypes.object.isRequired }
-	};
+	// enforce the store if component isn't presentational'
+	if (presentational ){ 
+		options = {
+			context: { store }
+		}
+	} else {
+		options = {
+			context: { store },
+			childContextTypes: { store: React.PropTypes.object.isRequired }
+		};
+	}
 
 	if ( renderType === 'shallow' ){
-		enzymeWrapper = shallow( component );
+		enzymeWrapper = shallow( Component );
 	} else {
-		enzymeWrapper = mount( component, options );
+		enzymeWrapper = mount( Component, options );
 	}
 
 	return {

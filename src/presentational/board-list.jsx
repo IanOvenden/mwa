@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import {Link} from 'react-router';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 /**
  * Boards class for list of boards.
@@ -9,7 +9,7 @@ import {Link} from 'react-router';
  * @requires react-router
  */
 
-class Boards extends React.Component {
+class BoardList extends React.Component {
 
 	/**
      * Render board list element.
@@ -27,4 +27,4 @@ class Boards extends React.Component {
 	}
 }
 
-export default Boards;
+export default BoardList;
