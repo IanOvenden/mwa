@@ -1,4 +1,6 @@
 {
+  "ignoreFiles": 
+    ["src/_assets/css/lib/reset.css"],
   "rules": {
     "at-rule-blacklist": null,
     "at-rule-empty-line-before": ["always", {

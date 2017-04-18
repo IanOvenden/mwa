@@ -26,7 +26,7 @@ export function harness( Component, getState, nockObj, presentational=false, ren
 	};
 
 	//mock up the board endpoint api response
-	if ( nockObj ) {
+	if ( nockObj.endpoint ) {
 		nock( nockObj.endpoint )
 			.get( nockObj.get )
 			.reply( 200, 

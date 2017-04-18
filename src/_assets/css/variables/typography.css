@@ -1,0 +1,7 @@
+:root {
+	--font-base-size: 16px;
+	--font-header: 'roboto', sans-serif;
+	--font-text: 'roboto light', sans-serif;
+	--font-weight: 300;
+	--line-height: 1.5;
+}

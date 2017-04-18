@@ -3,6 +3,7 @@
 */
 
 import React from 'react';
+import Stages from '../containers/stages.jsx';
 
 /**
  * Board details page class.
@@ -27,6 +28,7 @@ class Board extends React.Component {
 		return (
 			<div>
 				<h1>Board Page  - {this.props.params.boardId}</h1>
+				<Stages boardId={this.props.params.boardId}/>
 			</div>
 		);
 	}

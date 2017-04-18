@@ -1,0 +1,11 @@
+header{
+	background-color: var( --color-brand-1 );
+	height: 30px;
+	padding: 5px;
+	width: 100%;
+}
+
+nav{
+	height: 18px;
+	overflow: hidden;
+}

@@ -56,3 +56,13 @@ A JavaScript implementation of the WHATWG DOM and HTML standards, for use with N
 TODO
 
 1. Investigate use of Google Lighthouse for app analysis github.com/GoogleChrome/lighthouse
+
+
+THEMES
+=======================
+https://color.adobe.com/Birdfolio-Blues-color-theme-1945976/?showPublished=true
+https://color.adobe.com/Phaedra-color-theme-1764754/?showPublished=true
+https://color.adobe.com/Times-Changing-color-theme-1536595/?showPublished=true
+https://color.adobe.com/Saffron-umbrella-color-theme-1641683/?showPublished=true
+https://color.adobe.com/Digerati-color-theme-231178/?showPublished=true
+https://color.adobe.com/MGswatch-2-color-theme-2362707/?showPublished=true

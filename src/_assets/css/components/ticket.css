@@ -1,0 +1,6 @@
+.ticket{
+	background-color: var( --color-brand-5 );
+	height: 150px;
+	margin-top: 10px;
+	width: 100%;
+}

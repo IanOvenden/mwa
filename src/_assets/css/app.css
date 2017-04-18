@@ -1,6 +1,12 @@
+/* Baseline */
+@import 'lib/reset.css';
+
 /* Shared */
-@import 'shared/colours.css';
-@import 'shared/typography.css';
+@import 'variables/colours.css';
+@import 'variables/typography.css';
 
 /* Components */
-@import 'components/article.css';
+@import 'components/main.css';
+@import 'components/toolbar.css';
+@import 'components/stage.css';
+@import 'components/ticket.css';

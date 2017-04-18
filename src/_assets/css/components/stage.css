@@ -1,0 +1,9 @@
+.stage{
+	background-color: var( --color-brand-2 );
+	display: inline-block;
+	float: left;
+	height: 100%;
+	margin: 5px;
+	padding: 10px;
+	width: 200px;
+}

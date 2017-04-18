@@ -13,10 +13,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/app';
+import Snap from './containers/snap';
+
 import styles from './_assets/css/app.css';
 
 ReactDOM.render( (
-	<App />
-	), document.getElementById( 'app' )
+	<Snap />
+	), document.getElementById( 'snap' )
 );

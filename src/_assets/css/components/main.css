@@ -1,0 +1,22 @@
+* {
+	font-size: var( --font-base-size );
+}
+
+h1, h2 {
+	font-family: var( --font-header );
+}
+
+h1{
+	color: var( --color-brand-2 );
+	font-size: 1.5em;
+	padding: 5px;
+}
+
+p, a {
+	font-family: var( --font-text );
+}
+
+a {
+	color: var( --color-brand-5 );
+	text-decoration: none;
+}

@@ -1,0 +1,53 @@
+/**
+ * @requires REDUX_ACTION_TYPES
+ * @memberOf module:REDUX_REDUCERS
+*/
+
+import { REQUEST_STAGES, RECEIVE_STAGES, STAGE_UPDATE_TICKET_LOAD } from '../constants/action-types';
+
+/** Handles stages slice of state object
+ * 	@function stages
+ * 	@param {object} State Current state
+ * 	@param {action} string Redux action
+ *  @memberOf module:REDUX_REDUCERS
+ * 	@returns {reducer} state new state
+*/
+
+export default function stages( state = {
+	isFetchingStages: false,
+	itemStages: []
+}, action ) {
+	switch ( action.type ) {
+	case REQUEST_STAGES:
+		return Object.assign({}, state, {
+			isFetchingStages: true
+		});
+	case RECEIVE_STAGES:
+		let items = [];
+		action.stages.map( ( stage ) =>
+			items.push( Object.assign( stage, { isFetchingTickets: false }) )
+		);
+		return Object.assign({}, state, {
+			isFetchingStages: false,
+			itemStages: items,
+			lastUpdated: action.receivedAt
+		});
+	case STAGE_UPDATE_TICKET_LOAD:
+		return Object.assign({}, ...state,
+			{
+				isFetchingStages: false,
+				itemStages: Object.keys( state.itemStages ).reduce( ( newItems, id ) => {
+					const oldItem = state.itemStages[id];
+					if ( oldItem.id === action.stageId ) {
+						newItems[id] = { ...oldItem, isFetchingTickets: action.status };
+					} else {
+						newItems[id] = oldItem;
+					}
+					return newItems;
+				}, [] )
+			}
+		);
+	default:
+		return state;
+	}
+}

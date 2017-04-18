@@ -4,7 +4,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchBoardsIfNeeded } from '../actions/board';
+import { fetchBoardsIfNeeded } from '../actions/boards';
 import BoardList from '../presentational/board-list.jsx';
 
 /**
@@ -24,7 +24,8 @@ export class BoardListContainer extends React.Component {
 
 	/**
      * Once mounted determine whether we need to fetch the boards
-     * @returns {Render}
+     * @function componentDidMount
+	 * @memberOf module:BOARDLIST
      */
 
 	componentDidMount() {
@@ -55,6 +56,15 @@ export class BoardListContainer extends React.Component {
 		);
 	}
 }
+
+/**
+ * propTypes
+ * @memberOf module:BOARDLIST
+ * @property {array} An array of boards
+ * @property {bool} isFetching - Has a request for boards been made and not yet resolved?
+ * @property {number} lastUpdated - date value
+ * @property {function} dispatch - the redux dispatch function is required.
+ */
 
 BoardListContainer.propTypes = {
 	boards: PropTypes.array.isRequired,

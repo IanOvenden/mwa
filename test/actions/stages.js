@@ -6,70 +6,58 @@ import nock from 'nock';
 import configureStore from '../../src/store/configure-store';
 import * as types from '../../src/constants/action-types';
 import * as api from '../../src/constants/api';
-import * as boards from '../../src/actions/boards';
+import * as stages from '../../src/actions/stages';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore( middlewares );
 
-describe( 'Board actions', () => {
+describe( 'Stage actions', () => {
 
-	it( 'Will return an action object of type REQUEST_BOARDS', () => {
-		expect( boards.requestBoards().type ).to.eql( types.REQUEST_BOARDS );
+	it( 'Will return an action object of type REQUEST_STAGES', () => {
+		expect( stages.requestStages().type ).to.eql( types.REQUEST_STAGES );
 	});
 
-	it( 'Will return an action object of type RECEIVE_BOARDS', () => {
+	it( 'Will return an action object of type RECEIVE_STAGES', () => {
 		let json = {
-			'name': 'boardX',
+			'name': 'stageX',
+			'boardId': 1,
 			'id': 1
 		};
-		expect( boards.receiveBoards().type ).to.eql( types.RECEIVE_BOARDS );
-		expect( boards.receiveBoards() ).to.include.keys( 'type', 'receivedAt', 'boards' );
-		expect( boards.receiveBoards().receivedAt ).to.eql( Date.now() );
-		expect( boards.receiveBoards( json ).boards ).to.eql(
+		expect( stages.receiveStages().type ).to.eql( types.RECEIVE_STAGES );
+		expect( stages.receiveStages() ).to.include.keys( 'type', 'receivedAt', 'stages' );
+		expect( stages.receiveStages().receivedAt ).to.eql( Date.now() );
+		expect( stages.receiveStages( json ).stages ).to.eql(
 			{
-				'name': 'boardX',
+				'name': 'stageX',
+				'boardId': 1,
 				'id': 1
 			}
 		);
 	});
 
-	it( 'will determine whether or not it is appropriate to fetch boards - shouldFetchBoards', () => {
-		let state = {
-			boards: {
-				isFetching: false,
-				items: {
-					name: 'boardX',
-					id: 1
-				}
-			}
-		};
-
-		expect( boards.shouldFetchBoards( [] ) ).to.eql( true );
-		expect( boards.shouldFetchBoards( state ) ).to.eql( true );
-		expect( boards.shouldFetchBoards( Object.assign( state, {boards: {isFetching: true}}) ) ).to.eql( false );
-	});
-
 	it( 'test the async action creators with a mock store.', () => {
 
 		//mock up the board endpoint api response
-		nock( api.BOARDS_ENDPOINT )
+		nock( api.STAGES_ENDPOINT.replace( '{boardId}', 1 ) )
 			.get( '' )
 			.reply( 200, {
-				isFetching: false,
+				isFetchingStages: false,
 				items: {
-					name: 'boardX',
+					name: 'stageX',
+					boardId: 1,
 					id: 1
 				}
 			});
 
 		//what actions are we expected to see called.
 		const expectedActions = [
-			{ type: types.REQUEST_BOARDS },
-			{ type: types.RECEIVE_BOARDS,
-				boards: {
-					isFetching: false,
+			{ type: types.REQUEST_STAGES },
+			{ type: types.RECEIVE_STAGES,
+				stages: {
+					isFetchingStages: false,
 					items: {
-						name: 'boardX',
+						name: 'stageX',
+						boardId: 1,
 						id: 1
 					}
 				},
@@ -79,7 +67,7 @@ describe( 'Board actions', () => {
 
 		const store = mockStore();
 
-		return store.dispatch( boards.fetchBoards() )
+		return store.dispatch( stages.fetchStages( 1 ) )
 		.then( () => { // return of async actions
 
 			// ensure receivedAt time stamps are within an appropriate tolerance level.
