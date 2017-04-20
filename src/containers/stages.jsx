@@ -54,7 +54,7 @@ export class Stages extends Component {
 				{stages.length > 0 &&
 					<div className="stages">
 						{stages.map( ( stage ) =>
-							<StageView boardId={this.props.boardId} key={stage.id} stage={stage}/>
+							<StageView boardId={this.props.boardId} key={stage.stageId} stage={stage}/>
 						)}
 					</div>
 				}

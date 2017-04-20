@@ -56,6 +56,8 @@ A JavaScript implementation of the WHATWG DOM and HTML standards, for use with N
 TODO
 
 1. Investigate use of Google Lighthouse for app analysis github.com/GoogleChrome/lighthouse
+2. Implement webdriver test suite
+3. Split dev Dependencies into dev and app dependencies
 
 
 THEMES

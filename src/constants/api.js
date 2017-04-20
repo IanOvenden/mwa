@@ -11,7 +11,7 @@
 */
 export const API_URL = 'http://private-c05f7-snapimock.apiary-mock.com';
 
-//export const API_URL = 'http://snapidevtest.csproject.org:8090/';
+//export const API_URL = 'http://snapidevtest.csproject.org:8090';
 
 //const API_URL = 'http://192.168.33.11:8090';
 

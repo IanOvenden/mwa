@@ -20,7 +20,7 @@ class StageView extends React.Component {
 		return (
 			<div key={this.props.stage.id} className="stage">
 				<h2>{this.props.stage.name}</h2>
-				<Tickets stageId={this.props.stage.id} boardId={this.props.boardId} isFetchingTickets={this.props.stage.isFetchingTickets} />
+				<Tickets stageId={this.props.stage.stageId} boardId={this.props.boardId} isFetchingTickets={this.props.stage.isFetchingTickets} />
 			</div>
 		);
 	}

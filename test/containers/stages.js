@@ -21,7 +21,7 @@ describe( 'Stages Container', () => {
 				itemStages: [{
 					name: 'stageX',
 					boardId: 1,
-					id: 1,
+					stageId: 1,
 					isFetchingTickets: false
 				}]
 			},
@@ -44,7 +44,7 @@ describe( 'Stages Container', () => {
 				itemStages: {
 					name: 'stageX',
 					boardId: 1,
-					id: 1,
+					stageId: 1,
 					isFetchingTickets: false
 				}
 			})
