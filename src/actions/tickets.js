@@ -67,6 +67,7 @@ function ticketsReieved( json, boardId, stageId ) {
 export function fetchTickets( boardId, stageId ) {
 	let status = true;
 	return dispatch => {
+		dispatch( requestTickets() );
 		dispatch({ type: 'STAGE_UPDATE_TICKET_LOAD', stageId, status });
 		return apiGetTickets( boardId, stageId )
 		.then( response => response.json() )

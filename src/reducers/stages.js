@@ -36,12 +36,12 @@ export default function stages( state = {
 		return Object.assign({}, ...state,
 			{
 				isFetchingStages: false,
-				itemStages: Object.keys( state.itemStages ).reduce( ( newItems, id ) => {
-					const oldItem = state.itemStages[id];
-					if ( oldItem.id === action.stageId ) {
-						newItems[id] = { ...oldItem, isFetchingTickets: action.status };
+				itemStages: Object.keys( state.itemStages ).reduce( ( newItems, stageId ) => {
+					const oldItem = state.itemStages[stageId];
+					if ( oldItem.stageId === action.stageId ) {
+						newItems[stageId] = { ...oldItem, isFetchingTickets: action.status };
 					} else {
-						newItems[id] = oldItem;
+						newItems[stageId] = oldItem;
 					}
 					return newItems;
 				}, [] )
