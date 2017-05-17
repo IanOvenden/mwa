@@ -2,6 +2,8 @@ const webpackMerge = require( 'webpack-merge' );
 const baseConfig = require( './webpack.base.config' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const path = require( 'path' );
+const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
+const WriteFilePlugin = require( 'write-file-webpack-plugin' );
 
 module.exports = function() {
 	return webpackMerge( baseConfig(), {
@@ -15,7 +17,15 @@ module.exports = function() {
 			historyApiFallback: true
 		},
 		plugins: [
-			new ExtractTextPlugin( '[name].bundle.css' )
+			new ExtractTextPlugin( '[name].bundle.css' ),
+			new CopyWebpackPlugin( [
+				{from: '_assets/pwa/manifest.json', to: '../../'},
+				{from: '_assets/pwa/browserconfig.xml', to: '../../'},
+				{from: '_assets/pwa/favicon.ico', to: '../../'}
+			] ),
+			new WriteFilePlugin({
+				test: /\.ico|\.xml|\.json/
+			})
 		]
 	});
 };

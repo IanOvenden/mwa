@@ -30,11 +30,6 @@ Chai
 http://chaijs.com/
 Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
 
-XX Sinon
-http://sinonjs.org/
-Standalone test spies, stubs and mocks for JavaScript.
-No dependencies, works with any unit testing framework
-
 Redux Mock Store
 http://arnaudbenard.com/redux-mock-store/
 A mock store for your testing your redux async action creators and middleware
@@ -55,10 +50,8 @@ A JavaScript implementation of the WHATWG DOM and HTML standards, for use with N
 
 TODO
 
-1. Investigate use of Google Lighthouse for app analysis github.com/GoogleChrome/lighthouse
+1. Investigate use of Google Lighthouse for pwa app analysis github.com/GoogleChrome/lighthouse
 2. Implement webdriver test suite
-3. Split dev Dependencies into dev and app dependencies
-
 
 THEMES
 =======================

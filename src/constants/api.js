@@ -9,7 +9,7 @@
 *	@private
 *   @memberOf module:API
 */
-export const API_URL = 'http://private-c05f7-snapimock.apiary-mock.com';
+export const API_URL = 'https://private-c05f7-snapimock.apiary-mock.com';
 
 //export const API_URL = 'http://snapidevtest.csproject.org:8090';
 

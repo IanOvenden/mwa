@@ -64,6 +64,7 @@ describe( 'Ticket actions', () => {
 
 		//what actions are we expected to see called.
 		const expectedActions = [
+			{ type: types.REQUEST_TICKETS },
 			{ type: types.STAGE_UPDATE_TICKET_LOAD,
 				stageId: 1,
 				status: true
@@ -97,11 +98,11 @@ describe( 'Ticket actions', () => {
 		.then( () => { // return of async actions
 
 			// ensure receivedAt time stamps are within an appropriate tolerance level.
-			expect( store.getActions()[1].receivedAt ).to.be.closeTo( expectedActions[1].receivedAt, 1000 );
+			expect( store.getActions()[2].receivedAt ).to.be.closeTo( expectedActions[2].receivedAt, 1000 );
 
 			// impossible to accurately compare receivedAt values, since there would be a delay in receiving the reply.
 			// deliberately match the values so as to pass the test.
-			expectedActions[1].receivedAt = store.getActions()[1].receivedAt;
+			expectedActions[2].receivedAt = store.getActions()[2].receivedAt;
 
 			expect( store.getActions() ).to.eql( expectedActions );
 		});

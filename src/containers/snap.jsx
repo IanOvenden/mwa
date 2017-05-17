@@ -4,8 +4,6 @@ import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import configureStore from '../store/configure-store';
 import Core from './core';
 import Index from '../pages/index';
-import Boards from '../pages/boards';
-import Board from '../pages/board';
 
 /** @constant
 *	@type {Object}
@@ -34,14 +32,41 @@ class Snap extends Component {
      * @returns {Render} render the correct page
      */
 	render() {
+
+		function errorLoading( err ) {
+			console.error( 'Dynamic page loading failed', err );
+		}
+
+		function loadRoute( callback ) {
+			return ( module ) => callback( null, module.default );
+		}
+
 		return (
 			<Provider store={store}>
 				<Router history={hashHistory}>
 					<Route path='/' component={Core}>
 						<IndexRoute component={Index}/>
-							<Route path='/home' component={Index} />
-							<Route path='/board(/:boardId)' component={Board} />
-							<Route path='/boards' component={Boards} />
+							<Route
+								path='/home'
+								getComponent={( location, callback )=> {
+									System.import( '../pages/index' )
+										.then( loadRoute( callback ) )
+										.catch( errorLoading );
+								}} />
+							<Route
+								path='/board(/:boardId)'
+								getComponent={( location, callback )=> {
+									System.import( '../pages/board' )
+										.then( loadRoute( callback ) )
+										.catch( errorLoading );
+								}} />
+							<Route
+								path='/boards'
+								getComponent={( location, callback )=> {
+									System.import( '../pages/boards' )
+										.then( loadRoute( callback ) )
+										.catch( errorLoading );
+								}} />
 					</Route>
 				</Router>
 			</Provider>

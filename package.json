@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "enzyme": "^2.7.1",
     "eslint": "^3.12.2",
@@ -36,17 +37,22 @@
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.0.0",
     "postcss-loader": "^1.2.0",
+    "preload-webpack-plugin": "^1.2.2",
     "stylelint": "^7.7.0",
     "stylelint-webpack-plugin": "^0.4.2",
+    "sw-precache": "^5.1.1",
+    "sw-precache-webpack-plugin": "^0.11.0",
     "webpack": "2.1.0-beta.27",
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-dev-server": "2.1.0-beta.12",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "write-file-webpack-plugin": "^4.0.2"
   },
   "scripts": {
     "dev": "webpack-dev-server --env=dev",
     "doc": "jsdoc -c config/jsdoc.conf.json -p",
     "test": "mocha --compilers js:babel-core/register test --recursive",
-    "build": "webpack --env=prod --progress --profile --colors -p"
+    "build": "webpack --env=prod --progress --profile --colors -p",
+    "analyse": "webpack --env=prod --profile --json > docs/stats/stats.json"
   }
 }

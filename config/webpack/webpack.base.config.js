@@ -13,11 +13,16 @@ module.exports = function() {
 	return {
 		context: path.resolve( __dirname, '../../src' ),
 		entry: {
-			app: './index.jsx'
+			vendor: [
+				'react', 'react-dom', 'react-router', 'react-redux'
+			],
+			app: [
+				'./index.jsx'
+			]
 		},
 		output: {
 			path: path.resolve( __dirname, '../../build/dist/assets' ),
-			publicPath: '/assets'
+			publicPath: '/assets/'
 		},
 		module: {
 			rules: [
@@ -35,6 +40,10 @@ module.exports = function() {
 		plugins: [
 			new StyleLintPlugin({
 				files: '**/*.css'
+			}),
+			new webpack.optimize.CommonsChunkPlugin({
+				name: 'vendor',
+				minChunks: Infinity
 			})
 		]
 	};
