@@ -6,7 +6,9 @@
 @import 'variables/typography.css';
 
 /* Components */
+@import 'components/common.css';
+@import 'components/form.css';
 @import 'components/main.css';
-@import 'components/toolbar.css';
 @import 'components/stage.css';
+@import 'components/toolbar.css';
 @import 'components/ticket.css';

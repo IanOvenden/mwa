@@ -65,7 +65,7 @@ describe( 'Stages Container', () => {
 		const StageView = enzymeWrapper.find( 'StageView' );
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<div class="stages"><h2>Stages</h2><div class="stages"><div class="stage"><h2>stageX</h2><div><article class="ticket"><p>ticketX</p></article></div></div></div></div>' );
+		expect( enzymeHTML ).to.eql( '<div class="stages"><h2>Stages</h2><div class="stages"><div class="stage"><label for="stageTitle1" class="form-label">stageX</label><textarea id="stageTitle1" class="stage-title">stageX</textarea><div><article class="ticket"><p>ticketX</p></article></div></div></div></div>' );
 
 	});
 

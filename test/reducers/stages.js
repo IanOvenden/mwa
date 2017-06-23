@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { REQUEST_STAGES, RECEIVE_STAGES } from '../../src/constants/action-types';
+import { REQUEST_STAGES, RECEIVE_STAGES, UPDATE_STAGE_TITLE } from '../../src/constants/action-types';
 import stages from '../../src/reducers/stages';
 
 describe( 'Stage reducer', () => {
@@ -40,5 +40,38 @@ describe( 'Stage reducer', () => {
 		)
 		.and.to.contain({ isFetchingStages: false })
 		.and.to.include.keys( 'isFetchingStages', 'lastUpdated', 'itemStages' );
+	});
+
+	it( 'Can update the tile of a stage - UPDATE_STAGE_TITLE', () => {
+		let state = {
+			itemStages: [
+				{
+					name: 'stageX',
+					boardId: 1,
+					stageId: 1
+				}
+			]
+		};
+
+		expect(
+			stages( state, {type: UPDATE_STAGE_TITLE,
+				payload:
+				{
+					stageTitle: 'stageY',
+					stageId: 1
+				}
+			})
+		).to.eql(
+			{
+				isFetchingStages: false,
+				itemStages: [
+					{
+						name: 'stageY',
+						boardId: 1,
+						stageId: 1
+					}
+				]
+			}
+		);
 	});
 });

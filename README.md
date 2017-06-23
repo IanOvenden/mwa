@@ -46,12 +46,13 @@ JSDom Global
 https://github.com/tmpvar/jsdom
 A JavaScript implementation of the WHATWG DOM and HTML standards, for use with Node.js.
 
-
+Mock Socket
+https://github.com/thoov/mock-socket
+Javascript mocking library for websockets and socket.io
 
 TODO
 
-1. Investigate use of Google Lighthouse for pwa app analysis github.com/GoogleChrome/lighthouse
-2. Implement webdriver test suite
+1. Implement webdriver test suite
 
 THEMES
 =======================

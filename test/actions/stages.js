@@ -1,3 +1,4 @@
+import { SocketIO as socketIO, Server } from 'mock-socket';
 import { fetch } from 'isomorphic-fetch';
 import { expect } from 'chai';
 import configureMockStore from 'redux-mock-store';
@@ -7,8 +8,9 @@ import configureStore from '../../src/store/configure-store';
 import * as types from '../../src/constants/action-types';
 import * as api from '../../src/constants/api';
 import * as stages from '../../src/actions/stages';
+import { init as websocketInit, emit, getMessages, mockServer } from '../.utility/websocket';
 
-const middlewares = [ thunk ];
+const middlewares = [ thunk.withExtraArgument({ emit }) ];
 const mockStore = configureMockStore( middlewares );
 
 describe( 'Stage actions', () => {
@@ -79,5 +81,67 @@ describe( 'Stage actions', () => {
 
 			expect( store.getActions() ).to.eql( expectedActions );
 		});
+	});
+
+	it( 'should update the stage name', () => {
+
+		const store = mockStore();
+
+		const expectedActions = [
+			{ type: types.UPDATE_STAGE_TITLE,
+				payload: {
+					stageId: 1,
+					stageTitle: 'stageY'
+				}
+			}
+		];
+
+		store.dispatch( stages.updateStageTitle( 1, 'stageY' ) );
+
+		expect( store.getActions() ).to.eql( expectedActions );
+
+	});
+
+	it( 'should update the stage name AND broadcast a message to the specified web socket', () => {
+
+		const store = mockStore();
+
+		websocketInit( store );
+
+		const expectedActions = [
+			{ type: types.UPDATE_STAGE_TITLE,
+				payload: {
+					stageId: 1,
+					stageTitle: 'stageY'
+				}
+			}
+		];
+
+		const expectedEmit = [
+			types.UPDATE_STAGE_TITLE,
+			{
+				stageId: 1,
+				stageTitle: 'stageY'
+			}
+		];
+
+		store.dispatch( stages.wsStageTitle( 1, 'stageY' ) );
+
+		expect( store.getActions() ).to.eql( expectedActions );
+		expect( getMessages() ).to.eql( expectedEmit ); //check web socket comms SEND
+
+		mockServer.emit(
+			types.UPDATE_STAGE_TITLE,
+			{
+				stageId: 1,
+				stageTitle: 'stageWS'
+			});
+
+		expect( store.getActions()[1] ).to.eql( //check web socket comms RECEIVE
+			{
+				type: 'UPDATE_STAGE_TITLE',
+				payload: { stageId: 1, stageTitle: 'stageWS' } }
+		);
+
 	});
 });

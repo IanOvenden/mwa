@@ -1,0 +1,18 @@
+.stage-title, .ticket-title {
+	background: 0 0;
+	border: none;
+	border-radius: 3px;
+	box-shadow: none;
+	font-weight: 700;
+	height: 18px;
+	margin: -3px -5px;
+	max-height: 16pc;
+	min-height: 18px;
+	overflow: hidden;
+	padding: 3px 5px;
+	resize: none;
+}
+
+.stage-title:focus, .ticket-title:focus {
+	background-color: #ffffff;
+}

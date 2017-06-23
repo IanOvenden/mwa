@@ -3,7 +3,7 @@
  * @memberOf module:REDUX_REDUCERS
 */
 
-import { REQUEST_STAGES, RECEIVE_STAGES, STAGE_UPDATE_TICKET_LOAD } from '../constants/action-types';
+import { REQUEST_STAGES, RECEIVE_STAGES, STAGE_UPDATE_TICKET_LOAD, UPDATE_STAGE_TITLE } from '../constants/action-types';
 
 /** Handles stages slice of state object
  * 	@function stages
@@ -40,6 +40,21 @@ export default function stages( state = {
 					const oldItem = state.itemStages[stageId];
 					if ( oldItem.stageId === action.stageId ) {
 						newItems[stageId] = { ...oldItem, isFetchingTickets: action.status };
+					} else {
+						newItems[stageId] = oldItem;
+					}
+					return newItems;
+				}, [] )
+			}
+		);
+	case UPDATE_STAGE_TITLE:
+		return Object.assign({}, ...state,
+			{
+				isFetchingStages: false,
+				itemStages: Object.keys( state.itemStages ).reduce( ( newItems, stageId ) => {
+					const oldItem = state.itemStages[stageId];
+					if ( oldItem.stageId === action.payload.stageId ) {
+						newItems[stageId] = { ...oldItem, name: action.payload.stageTitle };
 					} else {
 						newItems[stageId] = oldItem;
 					}

@@ -3,14 +3,18 @@
  * @requires redux
  * @requires redux-thunk
  * @requires redux-logger
+ * @requires reducer
+ * @requires actions/websocket
 */
 
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducer from '../reducers';
+import { init as websocketInit, emit } from '../actions/websocket';
 
 const loggerMiddleware = createLogger();
+const middleware = [ thunkMiddleware.withExtraArgument({ emit }) ];
 
 /** Store creation funciton
  * 	@function configureStore
@@ -19,12 +23,14 @@ const loggerMiddleware = createLogger();
 */
 
 export default function configureStore( preloadedState ) {
-	return createStore(
+	const store = createStore(
 		reducer,
 		preloadedState,
 		applyMiddleware(
-			thunkMiddleware,
+			...middleware,
 			loggerMiddleware
 		)
 	);
+	websocketInit( store );
+	return store;
 }

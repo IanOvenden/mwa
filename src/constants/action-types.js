@@ -64,3 +64,11 @@ export const RECEIVE_TICKETS = 'RECEIVE_TICKETS';
  */
 
 export const STAGE_UPDATE_TICKET_LOAD = 'STAGE_UPDATE_TICKET_LOAD';
+
+/**
+ *   Emitted when the user updates a stage title
+ *   @event     UPDATE_STAGE_TITLE
+ *   @type      {Action}
+ */
+
+export const UPDATE_STAGE_TITLE = 'UPDATE_STAGE_TITLE';

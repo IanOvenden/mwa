@@ -5,7 +5,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchStages } from '../actions/stages';
-import StageView from '../presentational/stage';
+import Stage from '../containers/stage';
 
 /**
  * Stage class
@@ -14,7 +14,7 @@ import StageView from '../presentational/stage';
  * @requires react
  * @requires react-redux
  * @requires actions/stages
- * @requires presentational/stages
+ * @requires container/stages
  */
 
 export class Stages extends Component {
@@ -54,7 +54,7 @@ export class Stages extends Component {
 				{stages.length > 0 &&
 					<div className="stages">
 						{stages.map( ( stage ) =>
-							<StageView boardId={this.props.boardId} key={stage.stageId} stage={stage}/>
+							<Stage boardId={this.props.boardId} key={stage.stageId} stage={stage}/>
 						)}
 					</div>
 				}

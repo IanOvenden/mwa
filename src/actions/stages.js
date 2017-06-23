@@ -2,8 +2,10 @@
  * @memberOf module:REDUX_ACTIONS
 */
 
-import {REQUEST_STAGES, RECEIVE_STAGES, STAGE_UPDATE_TICKET_LOAD} from '../constants/action-types';
+import {REQUEST_STAGES, RECEIVE_STAGES, STAGE_UPDATE_TICKET_LOAD, UPDATE_STAGE_TITLE} from '../constants/action-types';
+import * as config from '../constants/websocket';
 import {apiGetStages} from '../api/stages';
+const { messageTypes } = config;
 
 /** Action creator for REQUEST_STAGES
  * 	@function requestStages
@@ -46,5 +48,42 @@ export function fetchStages( boardId ) {
 		return apiGetStages( boardId )
 		.then( response => response.json() )
 		.then( json => dispatch( receiveStages( json ) ) );
+	};
+}
+
+/** Update the title of a stage.
+ * 	@function updateStageTitle
+ *  @param {number} stageId The ID of the stage to be updated
+ *  @memberOf module:REDUX_ACTIONS
+ * 	@returns {Action} UPDATE_STAGE_TITLE
+*/
+
+export function updateStageTitle( stageId, stageTitle ) {
+	return {
+		type: UPDATE_STAGE_TITLE,
+		payload: {
+			stageId: stageId,
+			stageTitle: stageTitle
+		}
+	};
+}
+
+/** Update the title of a stage and broadcast the change to the web socket.
+ * 	@function wsStageTitle
+ *  @param {number} stageId The ID of the stage to be updated
+ *  @memberOf module:REDUX_ACTIONS
+ * 	@returns {Action} UPDATE_STAGE_TITLE
+*/
+
+export function wsStageTitle( stageId, stageTitle ) {
+	return ( dispatch, getState, {emit}) => {
+		dispatch({
+			type: UPDATE_STAGE_TITLE,
+			payload: {
+				stageId: stageId,
+				stageTitle: stageTitle
+			}
+		}),
+		emit( messageTypes.UPDATE_STAGE_TITLE, { stageId: stageId, stageTitle: stageTitle });
 	};
 }
