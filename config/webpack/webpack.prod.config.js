@@ -4,7 +4,6 @@ const webpackMerge = require( 'webpack-merge' );
 const baseConfig = require( './webpack.base.config' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
-const PreloadWebpackPlugin = require( 'preload-webpack-plugin' );
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const SWPrecacheWebpackPlugin = require( 'sw-precache-webpack-plugin' );
 
@@ -28,7 +27,6 @@ module.exports = function() {
 				{from: '_assets/pwa/browserconfig.xml', to: '../'},
 				{from: '_assets/pwa/favicon.ico', to: '../'}
 			] ),
-			new PreloadWebpackPlugin(),
 			new SWPrecacheWebpackPlugin({
 				cacheId: 'snap-cache',
 				filename: 'sw.js',

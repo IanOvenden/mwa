@@ -9,8 +9,14 @@
 *	@private
 *   @memberOf module:API
 */
+
+// APIARY
 export const API_URL = 'https://private-c05f7-snapimock.apiary-mock.com';
 
+// LOCAL
+//export const API_URL = 'http://snap-local:8090';
+
+// AWS
 //export const API_URL = 'http://snapidevtest.csproject.org:8090';
 
 //const API_URL = 'http://192.168.33.11:8090';

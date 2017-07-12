@@ -4,10 +4,13 @@
  * @requires redux-thunk
  * @requires redux-logger
  * @requires reducer
+ * @requires redux-offline
  * @requires actions/websocket
 */
 
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { offline } from 'redux-offline';
+import offlineConfig from 'redux-offline/lib/defaults';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducer from '../reducers';
@@ -26,9 +29,12 @@ export default function configureStore( preloadedState ) {
 	const store = createStore(
 		reducer,
 		preloadedState,
-		applyMiddleware(
-			...middleware,
-			loggerMiddleware
+		compose(
+			applyMiddleware(
+				...middleware,
+				loggerMiddleware
+			),
+			offline( offlineConfig )
 		)
 	);
 	websocketInit( store );

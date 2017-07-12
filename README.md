@@ -50,6 +50,24 @@ Mock Socket
 https://github.com/thoov/mock-socket
 Javascript mocking library for websockets and socket.io
 
+
+STATE MANAGEMENT
+=======================
+
+Redux
+http://redux.js.org/
+Redux is a predictable state container for JavaScript apps.
+
+It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience, such as live code editing combined with a time traveling debugger.
+
+
+OFFLINE
+=======================
+
+Redux Offline
+https://github.com/jevakallio/redux-offline
+Persistent Redux store for Reasonaboutable:tm: Offline-First applications, with first-class support for optimistic UI. Use with React, React Native, or as standalone state container for any web app.
+
 TODO
 
 1. Implement webdriver test suite

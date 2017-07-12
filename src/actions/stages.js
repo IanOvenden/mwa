@@ -5,6 +5,7 @@
 import {REQUEST_STAGES, RECEIVE_STAGES, STAGE_UPDATE_TICKET_LOAD, UPDATE_STAGE_TITLE} from '../constants/action-types';
 import * as config from '../constants/websocket';
 import {apiGetStages} from '../api/stages';
+import {API_URL} from '../constants/api';
 const { messageTypes } = config;
 
 /** Action creator for REQUEST_STAGES
@@ -82,6 +83,18 @@ export function wsStageTitle( stageId, stageTitle ) {
 			payload: {
 				stageId: stageId,
 				stageTitle: stageTitle
+			},
+			meta: {
+				offline: {
+					// the network action to execute:
+					effect: { url: '', method: 'GET' },
+
+					// action to dispatch when effect succeeds:
+					commit: { type: 'UPDATE_STAGE_TITLE', meta: { stageId: stageId, stageTitle: stageTitle } }
+
+					// action to dispatch if network action fails permanently:
+					//rollback: { type: 'FOLLOW_USER_ROLLBACK', meta: { userId } }
+				}
 			}
 		}),
 		emit( messageTypes.UPDATE_STAGE_TITLE, { stageId: stageId, stageTitle: stageTitle });

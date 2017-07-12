@@ -23,7 +23,16 @@ export default function tickets( state = {
 		});
 	case RECEIVE_TICKETS:
 
-		let items = state.itemTickets.concat( action.tickets );
+		let items = state.itemTickets;
+
+		action.tickets.forEach( function( item ) {
+			let tester = items.filter( function( v ) {
+				return v.ticketId === item.ticketId;
+			});
+			if ( tester.length === 0 ) {
+				items.push( item );
+			}
+		});
 
 		return Object.assign({}, state, {
 			isFetchingTickets: false,

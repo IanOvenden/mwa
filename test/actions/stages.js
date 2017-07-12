@@ -110,6 +110,21 @@ describe( 'Stage actions', () => {
 
 		const expectedActions = [
 			{ type: types.UPDATE_STAGE_TITLE,
+				'meta': {
+					'offline': {
+						'commit': {
+							'meta': {
+								'stageId': 1,
+								'stageTitle': 'stageY'
+							},
+							'type': 'UPDATE_STAGE_TITLE'
+						},
+						'effect': {
+							'method': 'GET',
+							'url': api.API_URL
+						}
+					}
+				},
 				payload: {
 					stageId: 1,
 					stageTitle: 'stageY'
