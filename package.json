@@ -36,15 +36,22 @@
     "mocha": "^3.2.0",
     "mock-socket": "^6.1.0",
     "nock": "^9.0.5",
+    "phantomjs-prebuilt": "^2.1.14",
     "postcss": "^5.2.6",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.0.0",
     "postcss-loader": "^1.2.0",
     "preload-webpack-plugin": "^1.2.2",
+    "selenium-standalone": "^6.5.0",
     "stylelint": "^7.7.0",
     "stylelint-webpack-plugin": "^0.4.2",
     "sw-precache": "^5.1.1",
     "sw-precache-webpack-plugin": "^0.11.0",
+    "wdio-dot-reporter": "0.0.8",
+    "wdio-json-reporter": "^0.2.1",
+    "wdio-mocha-framework": "^0.5.10",
+    "wdio-selenium-standalone-service": "^0.0.9",
+    "webdriverio": "^4.8.0",
     "webpack": "3.1.0",
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-dev-server": "2.1.0-beta.12",
@@ -52,10 +59,12 @@
     "write-file-webpack-plugin": "^4.0.2"
   },
   "scripts": {
+    "analyse": "webpack --env=prod --profile --json > docs/stats/stats.json",
+    "build": "webpack --env=prod --progress --profile --colors -p",
     "dev": "webpack-dev-server --env=dev",
     "doc": "jsdoc -c config/jsdoc.conf.json -p",
-    "test": "mocha --compilers js:babel-core/register test --recursive",
-    "build": "webpack --env=prod --progress --profile --colors -p",
-    "analyse": "webpack --env=prod --profile --json > docs/stats/stats.json"
+    "test": "npm run test:unit && npm run test:functional",
+    "test:functional": "./node_modules/.bin/wdio wdio.conf.js",
+    "test:unit": "mocha --compilers js:babel-core/register test/unit --recursive"
   }
 }

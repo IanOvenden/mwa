@@ -2,3 +2,4 @@
 dist
 docs
 node_modules
+test/functional/errorShots
