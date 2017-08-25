@@ -146,5 +146,3 @@ Selenium automates browsers. That's it! What you do with that power is entirely 
 2 Ensure test specs are using constants where applicable.
 
 3 Implement websocket server online check.  Only attempt comms if it is.
-
-4 Refactor prop types check which has moved to its own module from the React core.
