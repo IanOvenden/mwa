@@ -2,7 +2,8 @@
  * TICKETS
 */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchTickets } from '../actions/tickets';
 import Ticket from '../presentational/ticket';

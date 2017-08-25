@@ -33,6 +33,7 @@ module.exports = function() {
 				mergeStaticsConfig: true,
 				root: 'dist',
 				stripPrefix: 'C:/development/snap/projects/snap-react/build/dist',
+				logger: function() {},
 
 				//minify: true,
 				filepath: path.resolve( __dirname, '../../build/dist/sw.js' ),

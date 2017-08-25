@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { shallow, mount } from 'enzyme';
@@ -42,7 +43,7 @@ export function harness( Component, getState, nockObj, presentational=false, ren
 	} else {
 		options = {
 			context: { store },
-			childContextTypes: { store: React.PropTypes.object.isRequired }
+			childContextTypes: { store: PropTypes.object.isRequired }
 		};
 	}
 

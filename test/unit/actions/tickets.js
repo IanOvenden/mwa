@@ -3,7 +3,6 @@ import { expect } from 'chai';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from 'nock';
-import configureStore from '../../../src/store/configure-store';
 import * as types from '../../../src/constants/action-types';
 import * as api from '../../../src/constants/api';
 import * as tickets from '../../../src/actions/tickets';
