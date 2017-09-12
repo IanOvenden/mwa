@@ -45,7 +45,6 @@ export class Stages extends Component {
 
 		return (
 			<div className="stages">
-				<h2>Stages</h2>
 				{isFetchingStages && stages.length === 0 &&
 					<h2>Loading...</h2>
 				}
@@ -53,11 +52,9 @@ export class Stages extends Component {
 					<h2>Empty.</h2>
 				}
 				{stages.length > 0 &&
-					<div className="stages">
-						{stages.map( ( stage ) =>
-							<Stage boardId={this.props.boardId} key={stage.stageId} stage={stage}/>
-						)}
-					</div>
+					stages.map( ( stage ) =>
+						<Stage boardId={this.props.boardId} key={stage.stageId} stage={stage}/>
+					)
 				}
 			</div>
 		);

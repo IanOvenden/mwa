@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 */
 
 const Ticket = ({ ticketId, name }) => (
-	<article key={ticketId} className="ticket">
+	<li key={ticketId} className="ticket">
 		<p>{name}</p>
-	</article>
+	</li>
 );
 
 /**

@@ -65,7 +65,7 @@ describe( 'Stages Container', () => {
 		const StageView = enzymeWrapper.find( 'StageView' );
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<div class="stages"><h2>Stages</h2><div class="stages"><div class="stage"><label for="stageTitle1" class="form-label">stageX</label><textarea id="stageTitle1" class="stage-title">stageX</textarea><div><article class="ticket"><p>ticketX</p></article></div></div></div></div>' );
+		expect( enzymeHTML ).to.eql( '<div class="stages"><div class="stage"><header><label for="stageTitle1" class="form-label">stageX</label><textarea id="stageTitle1" class="stage-title">stageX</textarea></header><ul><li class="ticket"><p>ticketX</p></li></ul><footer><a href="#">Add a card...</a></footer></div></div>' );
 
 	});
 
@@ -89,7 +89,7 @@ describe( 'Stages Container', () => {
 		const enzymeHTML = enzymeWrapper.html();
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<div class="stages"><h2>Stages</h2><h2>Empty.</h2></div>' );
+		expect( enzymeHTML ).to.eql( '<div class="stages"><h2>Empty.</h2></div>' );
 
 	});
 
@@ -113,7 +113,7 @@ describe( 'Stages Container', () => {
 		const enzymeHTML = enzymeWrapper.html();
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<div class="stages"><h2>Stages</h2><h2>Loading...</h2></div>' );
+		expect( enzymeHTML ).to.eql( '<div class="stages"><h2>Loading...</h2></div>' );
 
 	});
 });

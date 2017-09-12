@@ -1,22 +1,74 @@
-* {
-	font-size: var( --font-base-size );
-}
-
-h1, h2 {
-	font-family: var( --font-header );
-}
-
-h1{
-	color: var( --color-brand-2 );
-	font-size: 1.5em;
-	padding: 5px;
-}
-
-p, a {
+html {
+	font-size: 62.5%;
 	font-family: var( --font-text );
 }
 
 a {
-	color: var( --color-brand-5 );
+	color: var( --color-action );
+	font-size: 1.4rem;
 	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+p{
+	font-size: 1.4rem;
+}
+
+.logo{
+	width: var( --logo-width );
+	margin: 10px;
+}
+
+h1, h2, h3, h4, h5, h6{
+	color: #ffffff;
+	margin: 0;
+}
+
+h1{
+	font-size: 2.6rem;
+	margin: var( --stage-spacing );
+	opacity: 0.75;
+}
+
+h2,{
+	font-size: 1.6rem;
+	color: #666666;
+}
+
+h3{
+	font-size: 1.4rem;
+}
+
+h4{
+	font-size: 1.2rem;
+}
+
+h5{
+	font-size: 1.1rem;
+}
+
+h6{
+	font-size: 1rem;
+}
+
+.ui {
+	height: 100vh;
+	display: grid;
+	grid-template-rows: var( --primary-nav-height ) 1fr;
+}
+
+.ui--subnav{
+	grid-template-rows: var( --primary-nav-height ) var( --secondary-nav-height ) 1fr;
+}
+
+.navbar {
+	display: flex;
+	background-color: var( --color-brand-1 );
+}
+
+.navbar--subnav {
+	background-color: var( --color-brand-2 );
 }

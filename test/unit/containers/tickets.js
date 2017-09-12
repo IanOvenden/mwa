@@ -55,7 +55,7 @@ describe( 'Tickets Container', () => {
 		const Ticket = enzymeWrapper.find( 'Ticket' );
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<div><article class="ticket"><p>ticketX</p></article></div>' );
+		expect( enzymeHTML ).to.eql( '<ul><li class="ticket"><p>ticketX</p></li></ul>' );
 
 	});
 
@@ -88,7 +88,7 @@ describe( 'Tickets Container', () => {
 		const enzymeHTML = enzymeWrapper.html();
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<div><h2>Empty.</h2></div>' );
+		expect( enzymeHTML ).to.eql( '<ul><li class="empty"><p>Empty.</p></li></ul>' );
 
 	});
 
@@ -121,7 +121,7 @@ describe( 'Tickets Container', () => {
 		const enzymeHTML = enzymeWrapper.html();
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<div><h2>Loading...</h2></div>' );
+		expect( enzymeHTML ).to.eql( '<ul><li class="empty"><p>Loading...</p></li></ul>' );
 
 	});
 });

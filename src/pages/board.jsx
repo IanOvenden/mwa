@@ -26,10 +26,7 @@ class Board extends React.Component {
 	render() {
 
 		return (
-			<div>
-				<h1>Board Page  - {this.props.params.boardId}</h1>
-				<Stages boardId={this.props.params.boardId}/>
-			</div>
+			<Stages boardId={this.props.params.boardId}/>
 		);
 	}
 }

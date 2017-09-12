@@ -55,17 +55,21 @@ class Tickets extends Component {
 		isFetchingTickets = this.props.isFetchingTickets;
 
 		return (
-            <div>
+            <ul>
 				{isFetchingTickets && items.length === 0 &&
-					<h2>Loading...</h2>
+					<li className="empty">
+						<p>Loading...</p>
+					</li>
 				}
 				{!isFetchingTickets && items.length === 0 &&
-					<h2>Empty.</h2>
+					<li className="empty">
+						<p>Empty.</p>
+					</li>
 				}
 				{items.length > 0 &&
 					items
 				}
-            </div>
+            </ul>
 		);
 	}
 }

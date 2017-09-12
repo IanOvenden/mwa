@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Toolbar from './toolbar';
+import AppNav from './app-nav';
+import BoardNav from './board-nav';
 
 /**
  * Page wrapper class
@@ -21,9 +22,21 @@ class Core extends Component {
      */
 
 	render() {
+
+		let boardId;
+
+		if ( this.props.params !== undefined ) {
+			boardId = this.props.params.boardId;
+		} else if ( this.props.boardId > 0 ) {
+			boardId = this.props.boardId;
+		}
+
 		return (
-			<div className="main">
-				<Toolbar />
+			<div className="ui ui--subnav">
+				<AppNav />
+				{boardId > 0 &&
+					<BoardNav boardId={boardId} />
+				}
 				{this.props.children}
 			</div>
 		);

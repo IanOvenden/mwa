@@ -23,6 +23,7 @@ module.exports = function() {
 			}),
 			new CopyWebpackPlugin( [ // PROD
 				{from: '_assets/pwa', to: 'pwa', ignore: [ '*.json', '*.xml', '*.ico', '*.js']},
+				{from: '_assets/images', to: 'images', ignore: [ '*.ai']},
 				{from: '_assets/pwa/manifest.json', to: '../'},
 				{from: '_assets/pwa/browserconfig.xml', to: '../'},
 				{from: '_assets/pwa/favicon.ico', to: '../'}
