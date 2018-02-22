@@ -10,7 +10,12 @@
 			"modules": true,
 			"experimentalObjectRestSpread": true
 		}
-    },
+	},
+	"overrides": [
+		{
+		  "excludedFiles": "modules/*.polyfill.js"
+		}
+	  ],
 	"rules": {
 		"no-alert": "error",
 		"no-array-constructor": "off",

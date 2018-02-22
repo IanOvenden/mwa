@@ -37,7 +37,7 @@ describe( 'BoardListContainer', () => {
 		const BoardList = enzymeWrapper.find( 'BoardList' );
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<nav class="boardlist"><ul style="opacity: 1;"><li><a>boardX</a></li></ul></nav>' );
+		expect( enzymeHTML ).to.eql( '<div class="boards-nav-wrapper"><nav class="boards-nav" style="opacity: 1;"><div class="board-nav-board"><a>boardX</a></div></nav></div>' );
 
 	});
 
@@ -54,7 +54,7 @@ describe( 'BoardListContainer', () => {
 		const enzymeHTML = enzymeWrapper.html();
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<nav class="boardlist"><h2>Empty.</h2></nav>' );
+		expect( enzymeHTML ).to.eql( '<div class="boards-nav-wrapper"><h2>Empty.</h2></div>' );
 
 	});
 
@@ -71,7 +71,7 @@ describe( 'BoardListContainer', () => {
 		const enzymeHTML = enzymeWrapper.html();
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<nav class="boardlist"><h2>Loading...</h2></nav>' );
+		expect( enzymeHTML ).to.eql( '<div class="boards-nav-wrapper"><h2>Loading...</h2></div>' );
 
 	});
 });

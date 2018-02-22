@@ -38,7 +38,7 @@ describe( 'App Nav', () => {
 		const BoardListContainer = enzymeWrapper.find( 'BoardListContainer' );
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<header class="navbar"><div class="logo"><a href="/"><img src="assets/images/snap-logo.svg" alt="SNAP! ToDo Application"></a></div><nav class="boardlist"><ul style="opacity: 1;"><li><a>boardX</a></li></ul></nav></header>' );
+		expect( enzymeHTML ).to.eql( '<header class="navbar"><div class="logo"><a href="/"><img src="assets/images/snap-logo.svg" alt="SNAP! ToDo Application"></a></div><button class="nav-link">Boards</button><div class="boards-nav-wrapper"><nav class="boards-nav" style="opacity: 1;"><div class="board-nav-board"><a>boardX</a></div></nav></div></header>' );
 
 		// ensure the BoardsListContainer component has the correct props being passed to it
 		expect( BoardListContainer.props().isFetching ).to.be.false;

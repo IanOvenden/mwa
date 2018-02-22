@@ -1,10 +1,9 @@
 import React from 'react';
 
 /**
- * Container for toolbar elements
+ * Container for board details and navigation elements
  * @extends Component
  * @requires react
- * @requires BoardListContainer
  */
 
 export class BoardNav extends React.Component {
@@ -14,7 +13,7 @@ export class BoardNav extends React.Component {
 	}
 
 	/**
-     * Render out the toolbar.
+     * Render out the board sub navigation.
      * @returns {Render}
      */
 

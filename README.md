@@ -83,6 +83,12 @@ Mocha tests run serially, allowing for flexible and accurate reporting, while ma
 
 Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
 
+#### Sinon
+
+[http://sinonjs.org/](http://sinonjs.org/)
+
+Standalone test spies, stubs and mocks for JavaScript. Works with any unit testing framework.
+
 #### Redux Mock Store
 
 [http://arnaudbenard.com/redux-mock-store](http://arnaudbenard.com/redux-mock-store)
@@ -146,3 +152,7 @@ Selenium automates browsers. That's it! What you do with that power is entirely 
 2 Ensure test specs are using constants where applicable.
 
 3 Implement websocket server online check.  Only attempt comms if it is.
+
+4 Complete unit testing for Dragon Drop
+
+5 Break out Dragon Drop into it's own repo?

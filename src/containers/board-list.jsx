@@ -43,7 +43,7 @@ export class BoardListContainer extends React.Component {
 		const { boards, isFetching, lastUpdated } = this.props;
 
 		return (
-			<nav className="boardlist">
+			<div className="boards-nav-wrapper">
 				{isFetching && boards.length === 0 &&
 					<h2>Loading...</h2>
 				}
@@ -53,7 +53,7 @@ export class BoardListContainer extends React.Component {
 				{boards.length > 0 &&
 					<BoardList boards={boards} />
 				}
-			</nav>
+			</div>
 		);
 	}
 }

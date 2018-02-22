@@ -1,6 +1,9 @@
 {
   "ignoreFiles": 
     ["src/_assets/css/lib/reset.css"],
+  "plugins": [
+		"stylelint-order"
+	],
   "rules": {
     "at-rule-blacklist": null,
     "at-rule-empty-line-before": ["always", {
@@ -110,6 +113,11 @@
     "number-leading-zero": "always",
     "number-max-precision": 6,
     "number-no-trailing-zeros": true,
+    "order/order": [
+			"custom-properties",
+			"declarations"
+		],
+		"order/properties-alphabetical-order": true,
     "property-blacklist": null,
     "property-case": "lower",
     "property-no-unknown": true,
@@ -132,7 +140,7 @@
     "selector-list-comma-space-before": "never",
     "selector-max-empty-lines": 0,
     "selector-max-compound-selectors": 3,
-    "selector-max-specificity": "0,2,0",
+    "selector-max-specificity": "1,2,1",
     "selector-nested-pattern": null,
     "selector-no-qualifying-type": null,
     "selector-no-vendor-prefix": true,

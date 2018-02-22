@@ -18,11 +18,11 @@ class BoardList extends React.Component {
 
 	render() {
 		return (
-			<ul style={{ opacity: this.props.boards.isFetching ? 0.5 : 1 }}>
+			<nav className="boards-nav" style={{ opacity: this.props.boards.isFetching ? 0.5 : 1 }}>
 				{this.props.boards.map( ( board ) =>
-					<li key={board.id}><Link to={{ pathname: '/board/' + board.id } }>{board.name}</Link></li>
+					<div className="board-nav-board" key={board.id}><Link to={{ pathname: '/board/' + board.id } }>{board.name}</Link></div>
 				)}
-			</ul>
+			</nav>
 		);
 	}
 }

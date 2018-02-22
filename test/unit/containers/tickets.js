@@ -55,7 +55,7 @@ describe( 'Tickets Container', () => {
 		const Ticket = enzymeWrapper.find( 'Ticket' );
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<ul><li class="ticket"><p>ticketX</p></li></ul>' );
+		expect( enzymeHTML ).to.eql( '<ul class="stage_list"><li id="1" class="stage_list_container dragon-pointer--disable" draggable="true"><div class="stage_list_ticket"><p>ticketX</p></div></li><li id="stg1" class="stage_list_container dragon-item--empty dragon-pointer--disable"></li></ul>' );
 
 	});
 
@@ -88,7 +88,7 @@ describe( 'Tickets Container', () => {
 		const enzymeHTML = enzymeWrapper.html();
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<ul><li class="empty"><p>Empty.</p></li></ul>' );
+		expect( enzymeHTML ).to.eql( '<ul class="stage_list"><li id="stg1" class="stage_list_container dragon-item--empty dragon-pointer--disable"></li></ul>' );
 
 	});
 
@@ -121,7 +121,7 @@ describe( 'Tickets Container', () => {
 		const enzymeHTML = enzymeWrapper.html();
 
 		// validate the HTML structure
-		expect( enzymeHTML ).to.eql( '<ul><li class="empty"><p>Loading...</p></li></ul>' );
+		expect( enzymeHTML ).to.eql( '<ul class="stage_list"><li id="stg1" class="stage_list_container dragon-item--empty dragon-pointer--disable"></li></ul>' );
 
 	});
 });

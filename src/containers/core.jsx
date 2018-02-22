@@ -7,7 +7,8 @@ import BoardNav from './board-nav';
  * Page wrapper class
  * @extends Component
  * @requires react
- * @requires containers/toolbar
+ * @requires containers/app-nav
+ * @requires containers/board-nav
  */
 
 class Core extends Component {
@@ -18,7 +19,7 @@ class Core extends Component {
 
 	/**
      * Setup the router
-     * @returns {Render} render the main page layout with appropriate page
+     * @returns {Render} render the main page layout with appropriate page. Include application navigation and board navigation if required.
      */
 
 	render() {
@@ -32,7 +33,7 @@ class Core extends Component {
 		}
 
 		return (
-			<div className="ui ui--subnav">
+			<div className="ui ui--subnav" id="ui">
 				<AppNav />
 				{boardId > 0 &&
 					<BoardNav boardId={boardId} />

@@ -9,11 +9,28 @@ import PropTypes from 'prop-types';
 *	@requires react
 */
 
-const Ticket = ({ ticketId, name }) => (
-	<li key={ticketId} className="ticket">
-		<p>{name}</p>
-	</li>
-);
+class Ticket extends React.Component {
+
+	render() {
+		return (
+			<li key={this.props.ticketId} id={this.props.ticketId} className="stage_list_container dragon-pointer--disable" draggable="true" onDragOver={this.props.dragonOver} onDragEnter={this.props.dragonEnter} onDragLeave={this.props.dragonLeave} onDragStart={this.props.dragonStart} onDragEnd={this.props.dragonEnd} onDrop={this.props.dragonDrop}>
+				<div className="stage_list_ticket">
+					<p>{this.props.name}</p>
+					{this.props.ticketId === 2 &&
+						<p>Test Content</p>
+					}
+					{this.props.ticketId === 3 &&
+						<div>
+							<p>Test Content</p>
+							<p>Test Content 2</p>
+							<p>Test Content 3</p>
+						</div>
+					}
+				</div>
+			</li>
+		);
+	}
+};
 
 /**
  * propTypes

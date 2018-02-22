@@ -1,9 +1,9 @@
 .stages {
+	background-color: var( --color-brand-3 );
+	border-spacing: var( --stage-spacing ); /* IE9 fallback */
 	display: flex;
 	overflow-x: auto;
-	border-spacing: var( --stage-spacing ); /* IE9 fallback */
 	padding-top: var( --stage-spacing );
-	background-color: var( --color-brand-3 );
 }
 
 .stages > * {
@@ -17,9 +17,9 @@
 }
 
 .stage {
-	width: 300px;
 	display: table-cell; /* IE 9 fallback */
 	height: calc( 100% - var( --stage-header-height ) - var( --stage-footer-height ) );
+	width: 300px;
 }
 
 .stage > header {
@@ -36,33 +36,41 @@
 	padding: var( --ticket-spacing );
 }
 
-.stage ul {
+.stage_list_container:not( :last-child ) {
+	padding-top: 20px;
+}
+
+.stage_list {
+	list-style: none;
+	margin: -20px 0 0 0;
 	max-height: calc( 100% - var( --stage-spacing ) - var( --primary-nav-height ) );
 	overflow-y: auto;
-	margin: 0;
-	list-style: none;
-	padding-top: 0;
 	padding-bottom: 0;
-}
+	padding-top: 0;
 
-.stage ul li{
-	background-color: var( --ticket-color );
-	padding: var( --ticket-padding );
-	border-radius: var( --border-radius );
-	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.1 );
-}
+	&_ticket {
+		background-color: var( --ticket-color );
+		border-radius: var( --border-radius );
+		box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.1 );
+		box-sizing: border-box;
+		padding: var( --ticket-padding );
 
-.stage ul li:not( :last-child ) {
-	margin-bottom: var( --ticket-padding );
-}
+		&:before {
+			background-color: transparent;
+			transition: background-color 0.5s;
+		}
+	}
 
-ul li.empty{
-	background-color: initial;
-	padding: 20px 0;
-	box-shadow: none;
+	&_ticket:not( :last-child ) {
+		margin-top: var( --ticket-padding );
+	}
 }
 
 .stage textarea{
+	border-top: 3px solid transparent;
 	font-family: var( --font-text );
 	font-size: 1.6rem;
+	margin: 0;
+	padding-bottom: 10px;
+	width: 270px;
 }
