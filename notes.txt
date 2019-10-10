@@ -37,3 +37,14 @@ LINKS
 ======
 
 https://github.com/joshbuchea/HEAD
+
+YARN UPGRADE
+============
+
+- Issue with upgrading components related to node-gyp environment and fibers version
+- The following dependencies are revquired.  Versions led to successful upgrade
+- MacOS https://github.com/nodejs/node-gyp#on-macos
+-- Node version 10.16.3
+-- Node-gyp version 6.0.0
+-- Xcode-select version 2354 (xcode-select has to be installed)
+-- Python version 2.7.10 
