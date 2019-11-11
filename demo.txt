@@ -1,0 +1,32 @@
+ECC Demo - Berlin 2019
+======================
+
+1. File structure
+	a. Compontents
+
+2. Yarn (Dependencies)
+	a. Yarn.lock / Package.json
+		- List of required dependencies along with their versions
+	b. yarn install
+		- will pull down required node packages
+
+3. Build scripts
+	a. package.json
+		- Script block, executed through the command line.
+	b. Webpack
+		- Configuration a "dark art"
+		- Can configure different options per environment.
+
+4. Development server
+	a. Runtime
+
+5. Automated testing
+	a. unit
+	b. functional
+
+6. Automated documentation
+
+7. Continuous Integration/Delivery
+
+
+
