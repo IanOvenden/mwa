@@ -60,7 +60,7 @@
     "webdriverio": "^4.8.0",
     "webpack": "^3.5.5",
     "webpack-cleanup-plugin": "^0.5.1",
-    "webpack-dev-server": "^2.7.1",
+    "webpack-dev-server": "^3.1.11",
     "webpack-merge": "^4.1.0",
     "write-file-webpack-plugin": "^4.0.2",
     "xmlhttprequest": "^1.8.0"
