@@ -6,7 +6,7 @@ describe( 'Snap page', function() {
 		expect( header ).to.eql( 'Board Title - 3' );
 	});
 
-	it( 'should have the correct top level header', function() {
+	it( 'Stage title can be updated', function() {
 		browser.url( '/#/board/3' );
 		browser.waitForExist( '.stage-title', 5000 );
 		var stageTitle = browser.element( '.stage-title' );

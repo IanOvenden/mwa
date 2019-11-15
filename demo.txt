@@ -16,6 +16,7 @@ ECC Demo - Berlin 2019
 	b. Webpack
 		- Configuration a "dark art"
 		- Can configure different options per environment.
+		- Performance (bundle generation/chunking)
 
 4. Development server
 	a. Runtime
