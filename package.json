@@ -34,7 +34,7 @@
     "isomorphic-fetch": "^2.2.1",
     "js-fixtures": "^1.5.3",
     "jsdoc": "^3.4.3",
-    "jsdom": "^9.11.0",
+    "jsdom": "^16.5.0",
     "mocha": "^3.2.0",
     "mock-socket": "^6.1.0",
     "nock": "^9.0.5",
